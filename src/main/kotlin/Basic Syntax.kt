@@ -55,6 +55,7 @@ fun main() {
         print("$myCountry ")
     }
     println()
+    println("Actually meant to be blank :)")
 
     myWhileLoop()
     myWhenElse()
