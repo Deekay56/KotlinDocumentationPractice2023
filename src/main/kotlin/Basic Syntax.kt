@@ -49,9 +49,9 @@ fun main() {
     prod(5, 7) //this one will output only because the function body has a print function
     myForLoop()
 
-    //instantiate the function, and
-    val myCountries: List<String> = myForLoopWithReturn()
-    for (myCountry in myCountries){
+    //a bit different for the below function call
+    val myCountryList: List<String> = myForLoopWithReturn() //a variable that takes holds a list of Strings from the myForLoopWithReturn() function
+    for (myCountry in myCountryList){
         print("$myCountry ")
     }
     println()
@@ -125,14 +125,17 @@ fun myWhileLoop(){
     var age = 0 //this is a variable that checks the index position of every element in the list.
                //"age" will check the first element "45" at position "0", until "89" at position "4"
     while (age<ages.size){ //ages.size is "5", not "4". the last index position is usually ages.size-1
-        println(ages[age])
+                           //using while (age<ages.size-1) would stop the loop from accessing the last element in the list
+                           //since ages.size-1 is index(4), so 89 will not be included
+        print("${ages[age]} ")
         age++
     }
-
+    println()
     println(ages.size-1) //to give 4
     println(ages[4])// to give 89
 
 }
+
 
 //this function shows a when-else expression, which is useful as a more efficient alternative for if-else,
 // especially if the if-else has many conditions

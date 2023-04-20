@@ -1,7 +1,7 @@
 fun main(){
     val myName = "David"
 
-    println("My name is $myName.")
+    println("My name was $myName.")
 
     val myNewName = myName.replace("David", "John")
 
