@@ -1,0 +1,19 @@
+class Age (var myAge: Int = 0, var name: String = ""){
+
+    //myAge = 6 //you can assign a value to a class property inside the class body, but you can do so inside a function or constructor.
+
+
+}
+
+fun main() {
+    val age = Age(7, "David")
+
+    println("The age is ${age.myAge} and the name is ${age.name}.")
+
+    val triple = Triple(6, 7, 6)
+
+    print(triple.first)
+
+
+}
+
