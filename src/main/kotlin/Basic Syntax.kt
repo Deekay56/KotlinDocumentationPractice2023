@@ -147,18 +147,18 @@ fun myWhenElse(){
                                        // convert the user string input into the corresponding index position in the daysOfWeek list
                                       // this means that if a user enters "Wednesday", variable  "day" will be the element index [2]
     return when (day){ // this makes it easy to check the list values based on their index position
-        in 0 until daysOfWeek.size -> println("You have entered ${daysOfWeek[day]}.")
-        // the day variable will check all elements from the 0 index position index in the list, starting with [0] Monday to [7]
-        // in this case the last position is 6
-        //for example, "Monday" = daysOfWeek[0], hence if that's the case it will print out "Today is Monday" and so on
+        in 0..daysOfWeek.size-1 -> println("You have entered ${daysOfWeek[day]}.") //the ".." includes the last element in the range,
+        // unlike "until" which excludes the lat element in the range
+        // the day variable is the index position of the user input within the list
+        // which is represented by daysOfWeek.size-1
+        //for example, "Monday" = daysOfWeek[0], hence if that's the case it will print out "You have entered Monday" and so on
         else -> println("Invalid entry.")
     }
 }
 
 
 fun myForLoopWithRange(){
-    for (a:Int in 1
-            ..3){ //the range operator iterates through a range of values and executes the given condition
+    for (a:Int in 1..3){ //the range operator iterates through a range of values and executes the given condition
         for (b:Int in 1..10){
             println("oooooooooo") //inner loop prints ten "o"s then skips a line after each iteration. this is three times
         }
