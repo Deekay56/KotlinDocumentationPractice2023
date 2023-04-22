@@ -67,7 +67,7 @@ fun main() {
 
     //calling the Square class in the main function with an instance (), note to put the parameters if present
     val perimeter = Square(6.00, 6.00) //instantiate the class
-    println("The perimeter of the square is ${perimeter.perimeter} cm.") //and the property called "perimeter"
+    println("The perimeter of the square is ${perimeter.perimeter} cm.") //and the property "perimeter"
 
 
 
