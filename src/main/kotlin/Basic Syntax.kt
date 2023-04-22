@@ -69,6 +69,16 @@ fun main() {
     val perimeter = Square(6.00, 6.00) //instantiate the class
     println("The perimeter of the square is ${perimeter.perimeter} cm.") //and the property "perimeter"
 
+    //return a range of elements in the list
+    val myList = listOf("a", "b", "c", "d", "e")
+    val indices = myList.indices  // Returns the range 0..4
+
+    println(indices)
+
+    iterateRangeWithSkip()
+    whileLoopTestIndices()
+
+
 
 
 }
@@ -173,6 +183,23 @@ class Square (height: Double,length: Double){  //a simple class to give the peri
     var perimeter = (height + length) * 2
 }
 
+fun iterateRangeWithSkip (){
+    val myList = mutableListOf(16, 27, 81, 95, 57, 34, 77, 1, 55, 85, 23, 34)
+
+    for (i in 0 until myList.size step 2){ //prevent access of an out-of-bounds element if we put 0..myList.size
+        print("${myList[i]} ")
+    }
+    println()
+}
+
+fun whileLoopTestIndices(){
+    val list = mutableListOf(56, 67, 23, 56, 77)
+    var i = 0
+    while (i<list.size){
+        println("The element at $i is ${list[i]}.")
+        i++
+    }
+}
 
 
 
