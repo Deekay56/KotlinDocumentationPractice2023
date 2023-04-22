@@ -62,12 +62,12 @@ fun main() {
     myForLoopWithRange()
 
     //you can instantiate functions with a variable
-    val conditional = conditional(78,745)
+    val conditional = conditional(7128,745)
     println("The bigger number is: $conditional")
 
     //calling the Square class in the main function with an instance (), note to put the parameters if present
-    val perimeter = Square(6.00, 6.00)
-    println("The perimeter of the square is ${perimeter.perimeter} cm.")
+    val perimeter = Square(6.00, 6.00) //instantiate the class
+    println("The perimeter of the square is ${perimeter.perimeter} cm.") //and the property called "perimeter"
 
 
 

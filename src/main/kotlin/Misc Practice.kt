@@ -1,10 +1,18 @@
 fun main(){
-    val myName = "David"
 
-    println("My name was $myName.")
+    val myFamilyList = myFamily()
+    println("My family members are: ${myFamilyList.joinToString()}")
 
-    val myNewName = myName.replace("David", "John")
+    val area = MyArea(5, 6)
+    println("The area is ${area.area}.")
 
-    println("My new name is now $myNewName.")
+}
 
+fun myFamily (): List<String>{
+   val famList = mutableListOf("Mother", "Father", "Sister")
+    return famList
+}
+
+class MyArea (width: Int, height: Int){
+    val area = width*height
 }
