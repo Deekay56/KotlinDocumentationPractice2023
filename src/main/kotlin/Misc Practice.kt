@@ -4,8 +4,10 @@ fun main() {
     println("Enter a country name:")
     val myCountry = readln()
 
-    val myList = whenElseList(myCountry)
+    whenElseList(myCountry)
 
+    val yourName = name()
+    println("Your name is $yourName.")
 
 
 
@@ -17,11 +19,18 @@ fun whenElseList(myCountry: String) {
     when {
         myCountry in countryList->{
             when (myCountry) {
-            "Kenya" -> println("Nairobi is the capital.")
-            "Uganda"-> println("Kampala is the capital.")
+            "Kenya" -> println("The capital is Nairobi.")
+            "Uganda"-> println("The capital is Kampala.")
             else -> println("Nope")
         }
     }
         else->println("Not this one!")
     }
 }
+
+fun name(): String {
+    println("Please enter your name.")
+
+    return readln()
+}
+

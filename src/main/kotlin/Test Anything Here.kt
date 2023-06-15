@@ -4,18 +4,19 @@ fun printSum(a: Int, b: Int): Unit { //Unit type can be omitted. since the retur
     println("The sum of $a and $b is ${a + b}")
 }
 
-var z = 5 //variables can be declared at the top level, or globally, they will be accessed anywhere within the code. This is not encouraged.
 
-fun zadd(): Int{ //function parameters are read-only
-  z+=1
-    return z
+fun custName(): String {
+    println("What is your name?")
+    return readln()
 }
-
-
 
 fun main(){
     println(mick())
     printSum(5, 7)
-    println(zadd())
+
+    val mName = custName()
+    println("Hello $mName")
+
 
 }
+

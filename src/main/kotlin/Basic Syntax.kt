@@ -6,6 +6,8 @@ another sentence to show.
 another sentence to show
  */
 
+var badVariable = 9 //variables can be declared at the top level, or globally, they will be accessed anywhere within the code. This is not encouraged.
+
 fun main() {
     println("Hello World!") //most common beginner program
     println(23)
