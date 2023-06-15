@@ -80,6 +80,7 @@ fun main() {
     iterateRangeWithSkip()
     whileLoopTestIndices()
 
+    printSumWithUnit(5, 7)
 
 
 
@@ -204,6 +205,9 @@ fun whileLoopTestIndices(){
 }
 
 
+fun printSumWithUnit(a: Int, b: Int): Unit { //Unit type can be omitted. since the return type is absent, it is this assumed to be Unit
+        println("The sum of $a and $b is ${a + b}")
+    }
 
 
 
