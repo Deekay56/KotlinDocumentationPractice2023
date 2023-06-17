@@ -19,15 +19,82 @@ fun main() {
     val b = "Hello" //string, same as val b:String = "Hello"
     val c = true //or false, same as val c:Boolean = true
     val d = 0.00 //double, same as val d:Double = 0.00
+    val e = 'A' //char, for a single character
+    val f = 5.66F //floating point decimals, to 6 or 7 places
 
     //let's use these variables above by simply printing them out
     println(a)
     println(b)
     println(c)
     println(d)
+    println(e)
+    println(f)
+
+    //sample type conversion
+    val myNum = 5
+
+    val myNumToChar = myNum.toChar() //will give the ASCII code
+    val myNumToString  = myNum.toString() //will give the string representation of 5, which is still 5.
+    val myNumToDouble = myNum.toDouble() //will give 5.0
 
 
-    //string templates
+    println(myNum)
+    println(myNumToChar)
+    println(myNumToString)
+    println(myNumToDouble)
+
+    //assignment operators. need to use var to reassign
+    var numToSum = 5 //+= others are -=, *=, /=, %=, and a simple =
+    numToSum+=2
+    println(numToSum)
+
+    // comparison operators for comparing values
+    var comparisonNum1 = 5
+    var comparisonNum2 = 5
+
+    if (comparisonNum1 != comparisonNum2){ //this is the "not equal" to operator, both variables are equal in this case
+                                          //others include ==, >, >=, <=, and <
+        println("Not Equal")
+    }else{
+        println("Equal")
+    }
+
+    //logical operators determine logic between variables/values
+    //others include "&&" called the logical AND, as well as the "!" called the logical NOT
+    val logicalNum1  = 6
+    val logicalNum2  = 1
+
+    if(logicalNum1 > 3 || logicalNum2 < 5){ //logical OR
+        println("This statement is true.")
+    }else{
+        println("This statement is not true.")
+    }
+
+    //accessing and modifying a string
+    val customString1 = "Inglourious Bastards"
+    println(customString1[10]) //access element at index 10
+    println("The length of this string is ${customString1.length}") //string length
+    println(customString1.uppercase()) //convert to Upper Case
+    println(customString1.lowercase()) //convert back to Lower Case
+
+    //we will now introduce another string to compare with the first
+    val customString2 = "Inglourious Basterds"
+    println(customString1.compareTo(customString2)) //the output is "-4",
+    // which means the string 1 is lexicographically lesser than string 2.
+    //what that means is that string 1 has a letter that appears first in the alphabet,
+    // which is the "a" is Bastards, as compared to the "e" in Basterds
+
+
+    //find a string within a string
+    println(customString1.indexOf("Bastards")) // the B in "Bastards" occurs on the 12th index position
+
+    //string templates 1 (interpolation)
+    println("$customString1 is interpolated with $customString2.")
+    //or
+    println("${customString1} is interpolated with ${customString2}.")
+
+
+    //string templates 2
     val age1 = 7
     val myStringTemp = "My age is $age1"
 
@@ -208,27 +275,6 @@ fun whileLoopTestIndices(){
 fun printSumWithUnit(a: Int, b: Int): Unit { //Unit type can be omitted. since the return type is absent, it is this assumed to be Unit
         println("The sum of $a and $b is ${a + b}")
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
