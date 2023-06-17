@@ -49,8 +49,8 @@ fun main() {
     println(numToSum)
 
     // comparison operators for comparing values
-    var comparisonNum1 = 5
-    var comparisonNum2 = 5
+    val comparisonNum1 = 5
+    val comparisonNum2 = 5
 
     if (comparisonNum1 != comparisonNum2){ //this is the "not equal" to operator, both variables are equal in this case
                                           //others include ==, >, >=, <=, and <
@@ -110,6 +110,24 @@ fun main() {
     val myNewName = myName.replace("David", "John")
 
     println("My new name is now $myNewName.")
+
+    //boolean expressions
+    val boolNum1 = 5
+    val boolNum2 = 6
+
+    println(boolNum1>boolNum2)//will print "false"
+
+    //simple else-if conditional (including if-else)
+    val customAge = 40
+    if(customAge < 40){
+        println("Young.")
+    }else if(customAge == 40 && customAge <= 60){
+        println("Middle-aged.")
+    }else{
+        println("Old.")
+    }
+
+
 
     //calling functions in the main function.
     //for the functions without any output in their body, they will not execute output unless you pass them through the println() function
