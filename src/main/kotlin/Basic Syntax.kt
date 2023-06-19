@@ -67,7 +67,7 @@ fun main() {
     val logicalNum1  = 6
     val logicalNum2  = 1
 
-    if(logicalNum1 > 3 || logicalNum2 < 5){ //logical OR
+    if(logicalNum1 > 3 || logicalNum2 < 5){ //logical OR if any of the statements is true, then the end result is true
         println("This statement is true.")
     }else{
         println("This statement is not true.")
@@ -124,11 +124,76 @@ fun main() {
     val customAge = 40
     if(customAge < 40){
         println("Young.")
-    }else if(customAge == 40 && customAge <= 60){
+    }else if(customAge == 40 || customAge <= 60){
         println("Middle-aged.")
     }else{
         println("Old.")
     }
+
+    //when conditional, useful in a scenario of many if-elses
+    println("Please choose from a list of Dad, Mum, Big Bro, Small Bro, and Carol to find out their names:")
+
+    val familyMember = readln() //can skip this and use the readln() function directly in the "when" clause
+
+    val whichOne = when (familyMember){
+        "Dad"->"Dad's name is Jack."
+        "Mum"->"Mum's name is Maria."
+        "Big Bro"->"Big Bro's name is David."
+        "Small Bro"->"Small Bro's name is Sam."
+        "Siz"->"Siz's name is Grace."
+
+        else->"Invalid name. Choose from that list."
+    }
+    println(whichOne)
+
+    //while loop, executes code as long as the specified condition is true.
+    //in this case, 0 will be printed, as well as all numbers until 5
+    //Do not forget to increase the variable used in the condition, otherwise the loop will never end!
+    var whileLoopNumber = 0
+
+    while (whileLoopNumber<=5){
+        print(whileLoopNumber )
+        whileLoopNumber++
+    }
+
+    //do while loop, will execute at least once, even if the condition checked is false.
+    // in this case, 6 will be printed, and the loop quits.
+    //Again, do not forget to increase the variable used in the condition, otherwise the loop will never end!
+    var doWhileLoopNumber = 6
+    do {
+        print(doWhileLoopNumber)
+        doWhileLoopNumber++
+    }while (doWhileLoopNumber<=5)
+
+    //break statement, this will stop the loop at the point specified
+    //in this case, the loop breaks after printing 2
+    var breakLoopNumber = 0
+
+    while (breakLoopNumber<=5){
+        print(breakLoopNumber )
+        breakLoopNumber++
+        if (breakLoopNumber == 3) break
+    }
+
+    //continue statement, this will break one iteration IN THE LOOP, if a condition occurs, and then continues with the rest of the loop.
+    var continueLoopNumber = 0
+
+    while (continueLoopNumber<=5){
+        if (continueLoopNumber == 4) {
+            continueLoopNumber++
+            continue
+        }
+        print(continueLoopNumber )
+        continueLoopNumber++
+
+    }
+
+
+
+
+
+
+
 
 
 

@@ -1,28 +1,16 @@
 fun main(){
 
-    val myNum = 5
+    //while loop
+    var continueLoopNumber = 0
 
-    val myNumToChar = myNum.toChar() //will give the ASCII code
-    val myNumToString  = myNum.toString() //will give the string representation of 5, which is still 5.
-    val myNumToDouble = myNum.toDouble()
+    while (continueLoopNumber<=5){
+        if (continueLoopNumber == 4) {
+            continueLoopNumber++
+        continue
+        }
+        print(continueLoopNumber )
+        continueLoopNumber++
 
-    println(myNum)
-    println(myNumToChar)
-    println(myNumToString)
-    println(myNumToDouble)
-
-    val modulus  = (10/6).toDouble()
-
-    println(modulus)
-    println(modulus+1)
-
-    var num1 = 5
-    var num2 = 5
-
-    if (num2 != num1){
-        println("Not Equal")
-    }else{
-        println("Equal")
     }
 
 
