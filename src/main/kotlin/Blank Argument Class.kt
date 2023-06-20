@@ -2,10 +2,7 @@ class Test { //class has no arguments
   var a: Int = 0 //variables in this class have to be initialized
   var b: Int = 0
 
-
         //println("Hello") //you cannot use println in a class body without placing it inside a member function or init block
-
-
 
 }
 
