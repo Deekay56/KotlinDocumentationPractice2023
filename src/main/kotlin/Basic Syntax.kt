@@ -146,6 +146,25 @@ fun main() {
     }
     println(whichOne)
 
+    //when conditional for a simple mutable list
+    val alphabetList = mutableListOf("A", "B", "C", "D", "E")
+
+    println("Please enter an alphabet among A, B, C, D, and E to see what they mean:")
+
+    val myInput = readln() //get user input
+
+    val myInputIndex = alphabetList.indexOf(myInput)
+
+    val alphabetResult = when (myInputIndex){
+        0->"A represents an apple!"
+        1->"B represents a boy!"
+        2->"C represents a church!"
+        3->"D represents an dog!"
+        4->"E represents an egg!"
+        else->"Sorry, we cannot find $myInput in the list."
+    }
+    println(alphabetResult)
+
     //while loop, executes code as long as the specified condition is true.
     //in this case, 0 will be printed, as well as all numbers until 5
     //Do not forget to increase the variable used in the condition, otherwise the loop will never end!
@@ -188,20 +207,80 @@ fun main() {
 
     }
 
+    //another version of continue, using a character in the alphabet
+    var customLetter = 'A'
+
+    while (customLetter<='F'){
+        if (customLetter == 'C'){
+            customLetter++
+            continue
+        }
+        print(customLetter)
+        customLetter++
+    }
+
+    //arrays. store multiple values in a variable
+    val carArray = arrayOf("Benz","Volvo","Jeep","Subaru","Toyota")
+
+    println(carArray[0]) //access elements in the array with an index number encase in square brackets
+    //here we access the first element at index 0
+
+    carArray[0] = "Ford" //we can also change the value of the element and assign a new one
+
+    println(carArray.size) //array size is 5
+
+    if ("Jeep" in carArray){ //we can use the in operator to find if an element exists in an array
+        println("This car exists!")
+    }else{
+        println("This car does not exist!")
+    }
+
+    //for loop (as a continuation of the Car array example)
+    for (car in carArray){ //we can loop through an array using the "for loop" to get the elements in the array
+        print("$car, ")
+    }
 
 
+    //same array loop concept for integers
+    val loopNums = arrayOf(4, 6, 8, 5, 7, 8)
+
+    for (lnum in loopNums){
+        print("$lnum ")
+    }
+
+    //ranges in characters
+    for (customLetter in 'a'..'z'){ //all letters including a and z
+        print("$customLetter ")
+    }
+    println()
+
+    //ranges in numbers
+    for(customNum in 0..10){ //all numbers including 0 and 10
+        print("$customNum ")
+    }
+    println()
+
+    //break and continue in a range. refer to both above in the while loop
+    for (customLetter in 'a'..'z'){
+        if(customLetter == 'f'){
+            continue //replace with break if need be
+        }
+        print("$customLetter ")
+    }
+    println()
 
 
-
-
-
-
+    //functions
+    println() //one of the main predefined functions
 
     //calling functions in the main function.
     //for the functions without any output in their body, they will not execute output unless you pass them through the println() function
     sum(10, 10)
     diff(10, 5)
+
     prod(5, 7) //this one will output only because the function body has a print function
+    myFunc("David") //same to this one
+
     myForLoop()
 
     //a bit different for the below function call
@@ -236,7 +315,14 @@ fun main() {
     printSumWithUnit(5, 7)
 
 
+}
 
+//functions are blocks of code that run when called/invoked by another part of the code
+//you can pass data called parameters into a function
+//you can have as many parameters as you wish
+
+fun myFunc(firstName: String){
+    println("$firstName Doe.")
 }
 
 fun sum(a: Int, b: Int): Int { //simple function with two parameters and an Int return type, and a body
@@ -362,6 +448,7 @@ fun printSumWithUnit(a: Int, b: Int): Unit { //Unit type can be omitted. since t
         println("The sum of $a and $b is ${a + b}")
     }
 
+//classes
 
 
 

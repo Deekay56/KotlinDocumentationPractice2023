@@ -1,17 +1,9 @@
+fun mySum(a: Int, b: Int): Int {
+    return a + b
+}
+
 fun main(){
 
-    //while loop
-    var continueLoopNumber = 0
-
-    while (continueLoopNumber<=5){
-        if (continueLoopNumber == 4) {
-            continueLoopNumber++
-        continue
-        }
-        print(continueLoopNumber )
-        continueLoopNumber++
-
-    }
-
-
+    println(mySum(5,7))
 }
+
