@@ -314,6 +314,25 @@ fun main() {
 
     printSumWithUnit(5, 7)
 
+    //instantiate the Book class
+    val myBook = Book()
+
+    //you can now use the instance to print out the properties of the class
+    println(myBook.title)
+    println(myBook.author)
+    println(myBook.pages)
+
+    //Person class
+    val person1 = Person("David", 25) //First instance of the class as needed
+    //no default values
+    val person2 = Person("Carol", 21) //Second instance of class
+
+    val hobby1 = Hobbies("eating")
+
+    println("${person1.name} is ${person1.age} years old and likes ${hobby1.myHobby}.") //print them out
+    println("${person2.name} is ${person2.age} years old and also likes ${hobby1.myHobby}.")
+
+
 
 }
 
@@ -449,6 +468,23 @@ fun printSumWithUnit(a: Int, b: Int): Unit { //Unit type can be omitted. since t
     }
 
 //classes
+//A class is a blueprint or a template for creating objects.
+// It defines the properties (attributes) and behaviors (methods) that an object of that class can possess.
+// Classes encapsulate data and functionality together, allowing you to create multiple instances (objects) based on the class definition.
+// Classes are used for creating complex data structures and organizing code into reusable modules.
+// They facilitate object-oriented programming principles like inheritance, polymorphism, and encapsulation.
+
+class Book { //name starts with an upper case letter
+            //this class has the default values set in the properties
+    var pages = 320 //properties of the class initialized with values
+    val title = "Icon"
+    val author = "Robert Ludlum"
+}
+
+//classes also have primary constructors
+//these allow us to declare properties and initialize them when we instantiate an object
+class Person (val name: String, val age: Int) //no default values set in the properties
+class Hobbies (val myHobby: String)
 
 
 
