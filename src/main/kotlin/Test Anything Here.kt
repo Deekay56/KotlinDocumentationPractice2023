@@ -1,19 +1,16 @@
-class Cars { //this class has the default values set in the properties
-    val name = "Subaru"
-    val year = 2005
-    val topSpeed = 320
+class MyBook (val bookTitle: String, val bookPublished: Int, var bookPages: Int)
+{
+    init {
+        bookPages = 234
+    }
 }
 
 
 fun main(){
 
-    val myCar = Cars()
+    val harryPotter = MyBook("Harry Potter", 2003, 345)
 
-    println(myCar.name) //default values are already set in the class Cars
-    println(myCar.topSpeed)
-    println(myCar.year)
-
-
+    println("My favourite book is ${harryPotter.bookTitle}. It was published in ${harryPotter.bookPublished} and has ${harryPotter.bookPages} pages.")
 
 }
 

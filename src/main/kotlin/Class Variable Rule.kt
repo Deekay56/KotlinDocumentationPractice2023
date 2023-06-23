@@ -14,6 +14,10 @@ fun main() {
 
     print(triple.first)
 
+    val secondTriple = Triple(5,"Eat", 67)
+
+    println("${secondTriple.first}, then ${secondTriple.second}, and lastly ${secondTriple.third}.")
+
 
 }
 

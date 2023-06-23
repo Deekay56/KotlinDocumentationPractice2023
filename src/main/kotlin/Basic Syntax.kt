@@ -9,7 +9,7 @@ another sentence to show.
 another sentence to show
  */
 
-var badVariable = 9 //variables can be declared at the top level, or globally, they will be accessed anywhere within the code. This is not encouraged.
+//var badVariable = 9 //variables can be declared at the top level, or globally, they will be accessed anywhere within the code. This is not encouraged.
 
 fun main() {
     println("Hello World!") //most common beginner program
@@ -332,7 +332,12 @@ fun main() {
     println("${person1.name} is ${person1.age} years old and likes ${hobby1.myHobby}.") //print them out
     println("${person2.name} is ${person2.age} years old and also likes ${hobby1.myHobby}.")
 
+    //instantiate the MyEmployee class
 
+    val projectManager = MyEmployee("Erica", "Bloom", 30, 1956)
+
+    println("Our latest member of the board is ${projectManager.empFullName}. She is ${projectManager.empAge} years old," +
+            " and has been working for the company for ${projectManager.yearsWorked} years. ${projectManager.allTheBest()}")
 
 }
 
@@ -477,8 +482,8 @@ fun printSumWithUnit(a: Int, b: Int): Unit { //Unit type can be omitted. since t
 class Book { //name starts with an upper case letter
             //this class has the default values set in the properties
     var pages = 320 //properties of the class initialized with values
-    val title = "Icon"
-    val author = "Robert Ludlum"
+    val title = "Best of the Rest"
+    val author = "Robert Leeds"
 }
 
 //classes also have primary constructors
@@ -486,6 +491,25 @@ class Book { //name starts with an upper case letter
 class Person (val name: String, val age: Int) //no default values set in the properties
 class Hobbies (val myHobby: String)
 
+//the init block
+//since the primary constructor has no code other than properties and their data types
+//we use an initializer block to make use of more logic from the properties
+class MyEmployee(val fName: String, val lName: String, val yearsWorked: Int, val yearBorn: Int){
+    //declaration of properties of a class need to always be in the class, not inside an init block
+    val empFullName = "$fName $lName"
+    val empAge: Int
+    val currentYear = 2023
+
+    init {
+        empAge = currentYear - yearBorn
+    }
+
+    //you can also use functions inside a class, called member functions
+    fun allTheBest(): String{
+        return "All the best to $empFullName!"
+    }
+
+}//end class
 
 
 
