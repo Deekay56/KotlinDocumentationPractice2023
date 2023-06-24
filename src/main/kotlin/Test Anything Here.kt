@@ -1,16 +1,23 @@
-class MyBook (val bookTitle: String, val bookPublished: Int, var bookPages: Int)
-{
-    init {
-        bookPages = 234
+import java.util.*
+
+fun myAlphabet(){
+
+    val letterList = mutableListOf("A","B","C")
+
+    println("Please enter a letter from the list:")
+
+    val myLetter = readln()
+
+    val result  = when (letterList.indexOf(myLetter.uppercase(Locale.getDefault()))){
+        0->"A is for Apple!"
+        1->"B is for Boy!"
+        2->"C is for Cat"
+        else->"Invalid, try again!"
     }
+    println(result)
 }
 
 
-fun main(){
-
-    val harryPotter = MyBook("Harry Potter", 2003, 345)
-
-    println("My favourite book is ${harryPotter.bookTitle}. It was published in ${harryPotter.bookPublished} and has ${harryPotter.bookPages} pages.")
-
+fun main() {
+    myAlphabet()
 }
-

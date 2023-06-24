@@ -1,3 +1,5 @@
+import java.util.*
+
 //test for pulling 19.06.23
 //test for commit and push 19.06.23
 
@@ -153,7 +155,9 @@ fun main() {
 
     val myInput = readln() //get user input
 
-    val myInputIndex = alphabetList.indexOf(myInput)
+    //the uppercase(Locale.getDefault()) is used to render the input non-case sensitive
+
+    val myInputIndex = alphabetList.indexOf(myInput.uppercase(Locale.getDefault()))
 
     val alphabetResult = when (myInputIndex){
         0->"A represents an apple!"
