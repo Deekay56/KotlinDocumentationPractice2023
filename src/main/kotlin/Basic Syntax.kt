@@ -343,6 +343,12 @@ fun main() {
     println("Our latest member of the board is ${projectManager.empFullName}. She is ${projectManager.empAge} years old," +
             " and has been working for the company for ${projectManager.yearsWorked} years. ${projectManager.allTheBest()}")
 
+
+    //MyFamily class
+    val dad = MyFamily("James", 56)
+
+    println("${dad.name} is ${dad.age} years old. He was born in ${dad.yearBorn}.")
+
 }
 
 //functions are blocks of code that run when called/invoked by another part of the code
@@ -499,7 +505,7 @@ class Hobbies (val myHobby: String)
 //since the primary constructor has no code other than properties and their data types
 //we use an initializer block to make use of more logic from the properties
 class MyEmployee(val fName: String, val lName: String, val yearsWorked: Int, val yearBorn: Int){
-    //declaration of properties of a class need to always be in the class, not inside an init block
+    //declaration of properties of a class needs to ALWAYS be in the class, not inside an init block or member function
     val empFullName = "$fName $lName"
     val empAge: Int
     val currentYear = 2023
@@ -515,5 +521,21 @@ class MyEmployee(val fName: String, val lName: String, val yearsWorked: Int, val
 
 }//end class
 
+//MyFamily class
+class MyFamily(val name: String, val age: Int){
+
+    val yearBorn: Int
+    //all properties to be accessed outside the class need to be declared outside the init block
+    //If you place the yearBorn property inside the init block,
+    // it will be a local variable and not accessible outside the init block or from other parts of the class.
+    // The yearBorn will be limited in scope to the init block,
+    // and you won't be able to access it in the main function or anywhere else in the class.
+    init {
+        val currentYear = 2023
+        yearBorn = currentYear - age
+    }
+
+
+}//end class
 
 
