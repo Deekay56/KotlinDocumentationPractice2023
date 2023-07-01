@@ -355,11 +355,21 @@ fun main() {
     //instantiate the MySubclass subclass to print out the inherited function from the superclass
     MySubClass().superFunction()
 
+    val customBrand1 = CarModel("Toyota", "Camry")
+
+    customBrand1.yearOfBrand(year = 2003)
+    customBrand1.modelType()
+
+
+//-------------END OF MAIN FUNCTION-------------------------------------------------------------------------------------------------------------------------//
+
 }
+
 
 //functions are blocks of code that run when called/invoked by another part of the code
 //you can pass data called parameters into a function
 //you can have as many parameters as you wish
+//remember parameters are read-only or val by default, so don't use val or val
 
 fun myFunc(firstName: String){
     println("$firstName Doe.")
@@ -437,7 +447,7 @@ fun myWhenElse(){
     val input = readln() //this will hold what the user enters, as a string
     val day = daysOfWeek.indexOf(input) //this variable uses the indexOf function to
                                        // convert the user string input into the corresponding index position in the daysOfWeek list
-                                      // this means that if a user enters "Wednesday", variable  "day" will be the element index [2]
+                                      // this means that if a user enters "Wednesday," variable "day" will be the element index [2]
     return when (day){ // this makes it easy to check the list values based on their index position
         in 0..daysOfWeek.size-1 -> println("You have entered ${daysOfWeek[day]}.") //the ".." includes the last element in the range,
         // unlike "until" which excludes the lat element in the range
@@ -561,3 +571,26 @@ class MySubClass: MySuperClass(){
         println(superVariable)
     }
 } //end class
+
+
+//another example of class inheritance
+open class CarBrand (val brand: String){
+
+    //In functions, parameters are read-only (val) by default,
+    // meaning you can't reassign new values to them within the function.
+    // you don't need to explicitly use the val keyword when defining function parameters.
+
+    fun yearOfBrand(year: Int){ //so don't use "val year", just year
+
+        print("$brand had a big year in $year.")
+    }
+
+}
+
+class CarModel(brand: String, val model: String): CarBrand(brand){
+    fun modelType(){
+        println("$brand's model that year, the $model, was very popular.")
+    }
+
+}//end class
+
