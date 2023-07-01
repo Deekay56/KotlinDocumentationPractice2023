@@ -349,6 +349,9 @@ fun main() {
 
     println("${dad.name} is ${dad.age} years old. He was born in ${dad.yearBorn}.")
 
+    //instantiate the subclass to print out the inherited variable/property from the superclass
+    MySubClass().printSuperVariable()
+
 }
 
 //functions are blocks of code that run when called/invoked by another part of the code
@@ -538,4 +541,16 @@ class MyFamily(val name: String, val age: Int){
 
 }//end class
 
+//simple case of inheritance between classes
 
+//class being inherited from
+open class MySuperClass{
+    val superVariable = "This is a super variable that can be inherited by other classes."
+}
+
+//class inheriting (properties) from another class
+class MySubClass: MySuperClass(){
+    fun printSuperVariable(){
+        println(superVariable)
+    }
+} //end class
