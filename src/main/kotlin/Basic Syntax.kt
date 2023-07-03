@@ -13,6 +13,13 @@ another sentence to show
 
 //var badVariable = 9 //variables can be declared at the top level, or globally, they will be accessed anywhere within the code. This is not encouraged.
 
+/*Misc Notes*/
+// An expression consists of variables, methods and operators to produce a single value
+// The following are not expressions: variable declaration, value assignment, and class declaration
+//All functions are expressions, since they return at least a value of Unit
+
+
+
 fun main() {
     println("Hello World!") //most common beginner program
     println(23)
@@ -85,7 +92,7 @@ fun main() {
     //we will now introduce another string to compare with the first
     val customString2 = "Inglourious Basterds"
     println(customString1.compareTo(customString2)) //the output is "-4",
-    // which means the string 1 is lexicographically lesser than string 2.
+    // which means string 1 is lexicographically lesser than string 2.
     //what that means is that string 1 has a letter that appears first in the alphabet,
     // which is the "a" is Bastards, as compared to the "e" in Basterds
 
@@ -157,9 +164,7 @@ fun main() {
 
     //the uppercase(Locale.getDefault()) is used to render the input non-case sensitive
 
-    val myInputIndex = alphabetList.indexOf(myInput.uppercase(Locale.getDefault()))
-
-    val alphabetResult = when (myInputIndex){
+    val alphabetResult = when (alphabetList.indexOf(myInput.uppercase())){
         0->"A represents an apple!"
         1->"B represents a boy!"
         2->"C represents a church!"
