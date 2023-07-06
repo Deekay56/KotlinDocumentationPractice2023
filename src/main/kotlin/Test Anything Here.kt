@@ -18,7 +18,7 @@ fun myPlanets(){
 //simple when else, example 2
 fun months (){
     print("Enter number of the Month: ")
-    val month = when(readln().toIntOrNull()) {
+    val month = when(readln().toIntOrNull()) { //toIntOrNull converts user input into an integer, or null
         1->"January"
         2->"February"
         3->"March"
@@ -31,7 +31,7 @@ fun months (){
         10->"October"
         11->"November"
         12->"December"
-        else-> "Not a month of year!"
+        else-> "Not a month of the year!"
     }
     println(month)
 }
@@ -59,7 +59,14 @@ fun oddOrEven (){
 /*simple when else, example 4  */
 
 fun myCities(){
-val cityMap = mutableMapOf("Nairobi" to "Kenya", ) }
+
+    val cityMap = mutableMapOf("Nairobi" to "Kenya", "Kigali" to "Rwanda")
+
+    println("Choose a city from the list to see the country:")
+
+    val userInput = readln()
+
+}
 
 
 

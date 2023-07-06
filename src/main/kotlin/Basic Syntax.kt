@@ -1,9 +1,6 @@
 import java.util.*
 
-//test for pulling 19.06.23
-//test for commit and push 19.06.23
-
-//end of line comment. used per line
+//end of line comment. used per line.
 
 /*
 multiline comment. can be used as needed as long as its enclosed.
@@ -14,10 +11,27 @@ another sentence to show
 //var badVariable = 9 //variables can be declared at the top level, or globally, they will be accessed anywhere within the code. This is not encouraged.
 
 /*Misc Notes*/
-// An expression consists of variables, methods and operators to produce a single value
-// The following are not expressions: variable declaration, value assignment, and class declaration
-//All functions are expressions, since they return at least a value of Unit
 
+//Kotlin is statically typed, meaning the code is continuously compiled for errors before execution.
+//It uses less code and supports null safety.
+//Kotlin's variables are non-null by default, and must hold a value.
+//Kotlin is interoperable with Java, as it runs on JVM.
+//It supports higher-order functions.
+//Kotlin has very fast compilation time.
+//Kotlin is tool-friendly, and major IDEs like IntelliJ IDEA, Eclipse, and Android Studio can run it.
+
+// An expression consists of variables, methods and operators to produce a single value.
+// The following are not expressions: variable declaration, value assignment, and class declaration.
+//All functions are expressions, since they return at least a value of Unit.
+
+//A statement is any expression for an action to be carried out.
+//Variable declarations are statements, as are variable initializations, e.g., val x = 2
+//You can have more than one statement in a line, like, val x = 2; val y = "why"
+
+//A block any piece of code enclosed by curly brackets. All functions are code blocks.
+
+//A variable exists only inside the block of code where it has been declared.
+//Naming variables should follow the lowerCamelCase format.
 
 
 fun main() {
@@ -27,12 +41,13 @@ fun main() {
 
     //basic variables and their data types
     //kotlin automatically infers the data types once the value is given for a variable
-    val a = 1 //integer, same as val a:Int = 1
+    val a = 1 //integer, same as val a:Int = 1,has 32 bits
     val b = "Hello" //string, same as val b:String = "Hello"
-    val c = true //or false, same as val c:Boolean = true
-    val d = 0.00 //double, same as val d:Double = 0.00
-    val e = 'A' //char, for a single character
+    val c = true //or false, same as val c:Boolean = true, store true or false values
+    val d = 0.00 //double, same as val d:Double = 0.00, store decimal values
+    val e = 'A' //char, for a single character, stores single letters A-Z, or a-z, or numbers 0-9
     val f = 5.66F //floating point decimals, to 6 or 7 places
+    val g = 60L //long number, 64 bits to the 32 bits of Int
 
     //let's use these variables above by simply printing them out
     println(a)
@@ -41,6 +56,11 @@ fun main() {
     println(d)
     println(e)
     println(f)
+    println(g)
+
+    //null and non-null variables
+    val myNonNullVariable: String = "Not Null"
+    val myNullVariable: String? = null
 
     //sample type conversion
     val myNum = 5
@@ -55,19 +75,19 @@ fun main() {
     println(myNumToString)
     println(myNumToDouble)
 
-    //assignment operators. need to use var to reassign
+    //assignment operators. need to use the "var" and NOT "val" keyword to reassign
     var numToSum = 5 //+= others are -=, *=, /=, %=, and a simple =
     numToSum+=2
     println(numToSum)
 
     // comparison operators for comparing values
     val comparisonNum1 = 5
-    val comparisonNum2 = 5
+    val comparisonNum2 = 3
 
     if (comparisonNum1 != comparisonNum2){ //this is the "not equal" to operator, both variables are equal in this case
                                           //others include ==, >, >=, <=, and <
         println("Not Equal")
-    }else{
+    }else {
         println("Equal")
     }
 
