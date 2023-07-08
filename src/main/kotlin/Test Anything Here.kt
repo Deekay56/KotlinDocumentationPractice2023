@@ -1,7 +1,5 @@
-import java.util.*
-
 //simple when else, example 1
-fun myPlanets(){
+/*fun myPlanets(){
     println("Enter a planet name:")
     val result = when(readln().uppercase()){ //the uppercase function will convert the input (small case or uppercase) to uppercase
                                              //make sure the "when" options are in uppercase
@@ -40,7 +38,7 @@ fun months (){
 fun oddOrEven (){
     println("Enter any whole number:")
 
-    val input = readln().toLongOrNull() //converts input into long number, or null when it fails
+    val input = readln().toLongOrNull() //converts input into long number, or null otherwise
                                         //note the long number, as the user might enter a number bigger than INT limits
 
 
@@ -54,25 +52,48 @@ fun oddOrEven (){
     }
     println(result)
 
-}
+}*/
 
-/*simple when else, example 4  */
+/* fun animalSpeed(){
+    val animalList = mutableListOf("Cheetah", "Snail")
 
-fun myCities(){
+    println("Enter an animal from the list to see their speed:")
 
-    val cityMap = mutableMapOf("Nairobi" to "Kenya", "Kigali" to "Rwanda")
+    val result = when(readln().uppercase()){
+        "CHEETAH"->"A cheetah's maximum speed is 130km/h!"
+        "SNAIL"->"A snail's maximum speed is 0.048km/h!"
+        else->"Not valid!"
+    }
+    println(result)
+} */
+
+/* if else from a map. example 1 */
+/* fun cityToCountry (){
+
+    val cityToCountry = mutableMapOf("Nairobi" to "Kenya", "Kigali" to "Rwanda")
 
     println("Choose a city from the list to see the country:")
 
     val userInput = readln()
 
-}
+    val myCountry = cityToCountry[userInput] //retrieve the value from the key, which is the city
 
+    if(myCountry!=null){ //if the value of the
+        println("$userInput is the capital of $myCountry.")
+    }else{
+        println("$userInput is not in the list!")
+    }
 
+}*/
 
-fun main(){
+fun main (){
 
-    myPlanets()
+    /* myPlanets()
     months()
     oddOrEven()
+    animalSpeed()
+    cityToCountry()
+    animalSpeed() */
+
+
 }

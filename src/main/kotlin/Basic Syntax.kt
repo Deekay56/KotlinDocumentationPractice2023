@@ -1,6 +1,6 @@
-import java.util.*
+/* A) COMMENTS */
 
-//end of line comment. used per line.
+// end of line comment. used per line.
 
 /*
 multiline comment. can be used as needed as long as its enclosed.
@@ -8,39 +8,56 @@ another sentence to show.
 another sentence to show
  */
 
-//var badVariable = 9 //variables can be declared at the top level, or globally, they will be accessed anywhere within the code. This is not encouraged.
+/* B) MISCELLANEOUS NOTES */
 
-/*Misc Notes*/
+/* Kotlin is statically typed, meaning the code is continuously compiled for errors before execution.
+It uses less code and supports null safety.
+Kotlin's variables are non-null by default, and must hold a value.
+Kotlin is interoperable with Java, as it runs on JVM.
+It supports higher-order functions.
+Kotlin has very fast compilation time.
+Kotlin is tool-friendly, and major IDEs like IntelliJ IDEA, Eclipse, and Android Studio can run it.
 
-//Kotlin is statically typed, meaning the code is continuously compiled for errors before execution.
-//It uses less code and supports null safety.
-//Kotlin's variables are non-null by default, and must hold a value.
-//Kotlin is interoperable with Java, as it runs on JVM.
-//It supports higher-order functions.
-//Kotlin has very fast compilation time.
-//Kotlin is tool-friendly, and major IDEs like IntelliJ IDEA, Eclipse, and Android Studio can run it.
+An expression consists of variables, methods and operators to produce a single value.
+The following are not expressions: variable declaration, value assignment, and class declaration.
+All functions are expressions, since they return at least a value of Unit.
 
-// An expression consists of variables, methods and operators to produce a single value.
-// The following are not expressions: variable declaration, value assignment, and class declaration.
-//All functions are expressions, since they return at least a value of Unit.
+A statement is any expression for an action to be carried out.
+Variable declarations are statements, as are variable initializations, e.g., val x = 2
+You can have more than one statement in a line, like, val x = 2; val y = "why"
 
-//A statement is any expression for an action to be carried out.
-//Variable declarations are statements, as are variable initializations, e.g., val x = 2
-//You can have more than one statement in a line, like, val x = 2; val y = "why"
+A block any piece of code enclosed by curly brackets. All functions are code blocks.
+Any variable declared at the head of a block is accessible throughout the block,
+unless another one with the same name is declared inside the block
 
-//A block any piece of code enclosed by curly brackets. All functions are code blocks.
+A variable exists only inside the block of code where it has been declared.
+Naming variables should follow the lowerCamelCase format.
 
-//A variable exists only inside the block of code where it has been declared.
-//Naming variables should follow the lowerCamelCase format.
+var badVariable = 9 //variables can be declared at the top level, or globally, they will be accessed anywhere within the code.
+This is not encouraged.
 
+
+
+
+
+END OF MISC NOTES  */
+
+/* C) MAIN FUNCTION */
+/*
+* This function is the start of every Kotlin program, and it controls program execution.
+* It calls to other functions and classes to execute programs.
+*
+* */
 
 fun main() {
     println("Hello World!") //most common beginner program
     println(23)
 
+    /* VARIABLES */
 
     //basic variables and their data types
     //kotlin automatically infers the data types once the value is given for a variable
+
     val a = 1 //integer, same as val a:Int = 1,has 32 bits
     val b = "Hello" //string, same as val b:String = "Hello"
     val c = true //or false, same as val c:Boolean = true, store true or false values
@@ -80,7 +97,7 @@ fun main() {
     numToSum+=2
     println(numToSum)
 
-    // comparison operators for comparing values
+    // comparison/relational operators for comparing values
     val comparisonNum1 = 5
     val comparisonNum2 = 3
 
@@ -91,8 +108,14 @@ fun main() {
         println("Equal")
     }
 
+    //unary operators add to or subtract from a variable. they only work on mutable variables
+    var unaryVar = 5
+    unaryVar++
+    unaryVar--
+
     //logical operators determine logic between variables/values
-    //others include "&&" called the logical AND, as well as the "!" called the logical NOT
+    //others include "&&" called the logical AND,
+    // as well as the "!" called the logical NOT
     val logicalNum1  = 6
     val logicalNum2  = 1
 
@@ -143,6 +166,14 @@ fun main() {
 
     println("My new name is now $myNewName.")
 
+    //Type Conversion
+    //changing the data typeof a variable to another type
+    //others include toByte(), toShort(), toLong(), toFloat(), and toChar()
+    val customInt = 55
+    val customIntToDouble = customInt.toDouble() //this will print out 55.0
+    println(customIntToDouble)
+
+
     //boolean expressions
     val boolNum1 = 5
     val boolNum2 = 6
@@ -158,6 +189,39 @@ fun main() {
     }else{
         println("Old.")
     }
+
+
+    //fairly complex nested-if expression
+    println("Enter any three numbers and I will tell you the largest to the smallest:")
+
+    val num1 = readln().toIntOrNull()
+    val num2 = readln().toIntOrNull()
+    val num3 = readln().toIntOrNull()
+
+    if (num1 == null || num2 == null || num3 == null){
+        println("Please input three valid numbers!")
+    }else {
+
+        if (num1 > num2 && num2 > num3) {
+            println("Looks like $num1 is the largest of the bunch, followed by $num2, and then $num3!!")
+
+        } else if (num1 > num3 && num3 > num2) {
+            println("Looks like $num1 is the largest of the bunch, followed by $num3, and then $num2!")
+
+        } else if (num2 > num1 && num1 > num3) {
+            println("Looks like $num2 is the largest of the bunch, followed by $num1, and then $num3!")
+
+        } else if (num2 > num3 && num3 > num1) {
+            println("Looks like $num2 is the largest of the bunch, followed by $num3, and then $num1!")
+
+        } else if (num3 > num1 && num1 > num2) {
+            println("Looks like $num3 is the largest of the bunch, followed by $num1, and then $num2!")
+
+        } else if (num3 > num2 && num2 > num1) {
+            println("Looks like $num3 is the largest of the bunch, followed by $num2, and then $num1!")
+        }
+    }
+
 
     //when conditional, useful in a scenario of many if-elses
     println("Please choose from a list of Dad, Mum, Big Bro, Small Bro, and Carol to find out their names:")
@@ -204,9 +268,9 @@ fun main() {
         whileLoopNumber++
     }
 
-    //do while loop, will execute at least once, even if the condition checked is false.
+    //a do-while loop will execute at least once, even if the condition checked is false.
     // in this case, 6 will be printed, and the loop quits.
-    //Again, do not forget to increase the variable used in the condition, otherwise the loop will never end!
+    //Again, do not forget to increase the variable used in the condition otherwise the loop will never end!
     var doWhileLoopNumber = 6
     do {
         print(doWhileLoopNumber)
@@ -214,7 +278,7 @@ fun main() {
     }while (doWhileLoopNumber<=5)
 
     //break statement, this will stop the loop at the point specified
-    //in this case, the loop breaks after printing 2
+    //in this case; the loop breaks after printing 2
     var breakLoopNumber = 0
 
     while (breakLoopNumber<=5){
