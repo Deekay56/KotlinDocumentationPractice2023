@@ -76,8 +76,12 @@ fun main() {
     println(g)
 
     //null and non-null variables
-    val myNonNullVariable: String = "Not Null"
-    val myNullVariable: String? = null
+    val myNonNullVariable: String = "Not Null" //this will output a string value
+    val myNullVariable: String? = null //this will output "null" as a default to show that there is no value
+                                       //also note that a nullable variable can be any type, e.g., Boolean? Char?
+
+    println(myNonNullVariable)
+    println(myNullVariable)
 
     //sample type conversion
     val myNum = 5
@@ -113,6 +117,8 @@ fun main() {
     unaryVar++
     unaryVar--
 
+    println(unaryVar)
+
     //logical operators determine logic between variables/values
     //others include "&&" called the logical AND,
     // as well as the "!" called the logical NOT
@@ -145,8 +151,6 @@ fun main() {
 
     //string templates 1 (interpolation)
     println("$customString1 is interpolated with $customString2.")
-    //or
-    println("${customString1} is interpolated with ${customString2}.")
 
 
     //string templates 2
@@ -190,6 +194,21 @@ fun main() {
         println("Old.")
     }
 
+    //simple if-else conditional utilizing a Map
+    val cityToCountry = mutableMapOf("Nairobi" to "Kenya", "Kigali" to "Rwanda")
+
+    println("Choose a city between \"Nairobi\" or \"Kigali\" to see the country:")
+
+    val userInput = readln()
+
+    val custCountry = cityToCountry[userInput] //retrieve the value from the key, which is the city in this map
+
+    if(custCountry!=null){ //if the value of the input is not null, or invalid
+        println("$userInput is the capital of $custCountry.")
+    }else{
+        println("$userInput is not in the list!")
+    }
+
 
     //fairly complex nested-if expression
     println("Enter any three numbers and I will tell you the largest to the smallest:")
@@ -223,12 +242,12 @@ fun main() {
     }
 
 
-    //when conditional, useful in a scenario of many if-elses
+    //when-else conditional, useful in a scenario of many if-elses
     println("Please choose from a list of Dad, Mum, Big Bro, Small Bro, and Carol to find out their names:")
 
-    val familyMember = readln() //can skip this and use the readln() function directly in the "when" clause
+    //val familyMember = readln() //can skip this and use the readln() function directly in the "when" clause
 
-    val whichOne = when (familyMember){
+    val whichOne = when (readln()){
         "Dad"->"Dad's name is Jack."
         "Mum"->"Mum's name is Maria."
         "Big Bro"->"Big Bro's name is David."
@@ -239,7 +258,7 @@ fun main() {
     }
     println(whichOne)
 
-    //when conditional for a simple mutable list
+    //when-else conditional for a simple mutable list
     val alphabetList = mutableListOf("A", "B", "C", "D", "E")
 
     println("Please enter an alphabet among A, B, C, D, and E to see what they mean:")
@@ -257,6 +276,68 @@ fun main() {
         else->"Sorry, we cannot find $myInput in the list."
     }
     println(alphabetResult)
+
+    //another simple when-else conditional
+    println("Enter a planet name:")
+    val result = when(readln().uppercase()){ //the uppercase function will convert the input (small case or uppercase) to uppercase
+        //make sure the "when" options are in uppercase
+        "MARS"->"Mars is the closest neighbour to Earth!"
+        "EARTH"->"Earth is our home planet!"
+        "JUPITER"->"Jupiter is the largest planet!"
+        "VENUS"->"Venus has an anticlockwise rotation on its axis!"
+        else->"Sorry, please enter another planet!"
+    }
+    println(result)
+
+    //another simple when-else conditional
+    print("Enter number of the Month: ")
+    val month = when(readln().toIntOrNull()) { //toIntOrNull converts user input into an integer, or null
+        1->"January"
+        2->"February"
+        3->"March"
+        4->"April"
+        5->"May"
+        6->"June"
+        7->"July"
+        8->"August"
+        9->"September"
+        10->"October"
+        11->"November"
+        12->"December"
+        else-> "Not a month of the year!"
+    }
+    println(month)
+
+    //another simple when-else conditional
+    println("Enter any whole number:")
+
+    val input = readln().toLongOrNull() //converts input into long number, or null otherwise
+    //note the long number, as the user might enter a number bigger than INT limits
+
+
+    val customResult = when{
+        input == null ->"Invalid input, enter a whole number!" //when the input cannot be converted to a whole integer
+        // null represents the absence of a valid value,
+        // so if you put a string, then this line will be executed
+        input % 2L == 0L ->"The number is even!" //by default, no need for another line for odd, also LONG number
+        // since the only other option is odd
+        else->"The number is odd!"
+    }
+    println(customResult)
+
+
+    //another simple when-else conditional
+    println("Type either \"Cheetah\" or \"Snail\" from the list to see their speed:")
+
+    val customResult2 = when(readln().uppercase()){
+        "CHEETAH"->"A cheetah's maximum speed is 130km/h!"
+        "SNAIL"->"A snail's maximum speed is 0.048km/h!"
+        else->"Please follow the instructions!"
+    }
+    println(customResult2)
+
+
+
 
     //while loop, executes code as long as the specified condition is true.
     //in this case, 0 will be printed, as well as all numbers until 5
@@ -342,10 +423,9 @@ fun main() {
     }
 
     //ranges in characters
-    for (customLetter in 'a'..'z'){ //all letters including a and z
-        print("$customLetter ")
+    for (myLetter in 'a'..'z'){ //all letters including a and z
+        print("$myLetter ")
     }
-    println()
 
     //ranges in numbers
     for(customNum in 0..10){ //all numbers including 0 and 10
@@ -354,11 +434,11 @@ fun main() {
     println()
 
     //break and continue in a range. refer to both above in the while loop
-    for (customLetter in 'a'..'z'){
-        if(customLetter == 'f'){
+    for (mLetter in 'a'..'z'){
+        if(mLetter == 'f'){
             continue //replace with break if need be
         }
-        print("$customLetter ")
+        print("$mLetter ")
     }
     println()
 
@@ -528,21 +608,37 @@ fun myWhileLoop(){
 }
 
 
-//this function shows a when-else expression, which is useful as a more efficient alternative for if-else,
+//this function shows a when-else statement, which is useful as a more efficient alternative for if-else,
 // especially if the if-else has many conditions
+
+
+//CAVEAT: small lesson on how the code works
+
+/* in a simple range of elements from 0-x */
+//the "until" operator gives the range of elements from index 0 and excludes the last element in the range x
+//the ".." operator gives the range of elements from index 0 to the last element x
+
+/* in the code in question in the list */
+//the range 0 until daysOfWeek.size includes indices 0 to 6, each for a day in the list, representing all the elements in the list
+//It does not include index 7, which is daysOfWeek.size
+
+//The range 0..daysOfWeek.size includes the indices 0 to 7
+//This is to mean all the indices 0-6, as well as index 7 (daysOfWeek.size) which is the size of the list are covered.
+//Since the daysOfWeek list has 7 elements (indices 0 to 6), using 0..daysOfWeek.size will include an out-of-bounds index due to the invalid index 7
+
+//To iterate over the valid indices of the daysOfWeek list, you should use 0 until daysOfWeek.size, which includes indices 0 to 6, representing all the elements in the list.
+
+//One could also use daysOfWeek.indices is a PROPERTY of the List interface in Kotlin.
+//It returns a range of valid indices for the list.
+//In this case, it would return the range 0 until daysOfWeek.size, which includes all the valid indices for the daysOfWeek list.
+//For simplicity purposes, we shall employ that for this code :)
+
 fun myWhenElse(){
     val daysOfWeek = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
     println("Enter a day of the week:")
-    val input = readln() //this will hold what the user enters, as a string
-    val day = daysOfWeek.indexOf(input) //this variable uses the indexOf function to
-                                       // convert the user string input into the corresponding index position in the daysOfWeek list
-                                      // this means that if a user enters "Wednesday," variable "day" will be the element index [2]
-    return when (day){ // this makes it easy to check the list values based on their index position
-        in 0..daysOfWeek.size-1 -> println("You have entered ${daysOfWeek[day]}.") //the ".." includes the last element in the range,
-        // unlike "until" which excludes the lat element in the range
-        // the day variable is the index position of the user input within the list
-        // which is represented by daysOfWeek.size-1
-        //for example, "Monday" = daysOfWeek[0], hence if that's the case it will print out "You have entered Monday" and so on
+    val input = readln()
+    return when (daysOfWeek.indexOf(input)){
+        in daysOfWeek.indices -> println("You have entered ${daysOfWeek[daysOfWeek.indexOf(input)]}!")
         else -> println("Invalid entry.")
     }
 }
@@ -609,11 +705,11 @@ class Hobbies (val myHobby: String)
 //the init block
 //since the primary constructor has no code other than properties and their data types
 //we use an initializer block to make use of more logic from the properties
-class MyEmployee(val fName: String, val lName: String, val yearsWorked: Int, val yearBorn: Int){
+class MyEmployee(fName: String, lName: String, val yearsWorked: Int, private val yearBorn: Int){
     //declaration of properties of a class needs to ALWAYS be in the class, not inside an init block or member function
     val empFullName = "$fName $lName"
     val empAge: Int
-    val currentYear = 2023
+    private val currentYear = 2023
 
     init {
         empAge = currentYear - yearBorn
@@ -676,7 +772,7 @@ open class CarBrand (val brand: String){
 
 }
 
-class CarModel(brand: String, val model: String): CarBrand(brand){
+class CarModel(brand: String, private val model: String): CarBrand(brand){
     fun modelType(){
         println("$brand's model that year, the $model, was very popular.")
     }
