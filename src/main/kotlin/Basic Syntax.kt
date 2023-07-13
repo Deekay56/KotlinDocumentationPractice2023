@@ -76,7 +76,8 @@ fun main() {
     println(g)
 
     //null and non-null variables
-    val myNonNullVariable: String = "Not Null" //this will output a string value
+    val myNonNullVariable = "Not Null" //this will output a string value.
+                                       // This is also val myNonNullVariable: String = "Not Null"
     val myNullVariable: String? = null //this will output "null" as a default to show that there is no value
                                        //also note that a nullable variable can be any type, e.g., Boolean? Char?
 
@@ -505,13 +506,6 @@ fun main() {
     println("${person1.name} is ${person1.age} years old and likes ${hobby1.myHobby}.") //print them out
     println("${person2.name} is ${person2.age} years old and also likes ${hobby1.myHobby}.")
 
-    //instantiate the MyEmployee class
-
-    val projectManager = MyEmployee("Erica", "Bloom", 30, 1956)
-
-    println("Our latest member of the board is ${projectManager.empFullName}. She is ${projectManager.empAge} years old," +
-            " and has been working for the company for ${projectManager.yearsWorked} years. ${projectManager.allTheBest()}")
-
 
     //MyFamily class
     val dad = MyFamily("James", 56)
@@ -538,7 +532,11 @@ fun main() {
 //functions are blocks of code that run when called/invoked by another part of the code
 //you can pass data called parameters into a function
 //you can have as many parameters as you wish
-//remember parameters are read-only or val by default, so don't use val or val
+//remember parameters are read-only or val by default, so don't use val or val, as explained further below.
+
+//NOTE: Functions DO NOT have constructors, and only have parameters e.g., myFun(a:Char, b: Int)
+//NOTE: When declaring function parameters, you cannot use the val or val keywords.
+//The val keyword is used to declare properties (variables) within a CLASS, not for function parameters.
 
 fun myFunc(firstName: String){
     println("$firstName Doe.")
@@ -678,12 +676,25 @@ fun whileLoopTestIndices(){
     }
 }
 
+//Look at the function below:
+
+/*
 
 fun printSumWithUnit(a: Int, b: Int): Unit { //Unit type can be omitted. since the return type is absent, it is this assumed to be Unit
-        println("The sum of $a and $b is ${a + b}")
-    }
 
-//classes
+        println("The sum of $a and $b is ${a + b}")
+   }
+
+   //Hence the correct function below...
+
+*/
+
+fun printSumWithUnit(a: Int, b: Int) {
+    println("The sum of $a and $b is ${a + b}")
+}
+
+//CLASSES:
+
 //A class is a blueprint or a template for creating objects.
 // It defines the properties (attributes) and behaviors (methods) that an object of that class can possess.
 // Classes encapsulate data and functionality together, allowing you to create multiple instances (objects) based on the class definition.
@@ -697,30 +708,25 @@ class Book { //name starts with an upper case letter
     val author = "Robert Leeds"
 }
 
-//classes also have primary constructors
+//classes also have primary constructors, which are the brackets after the class name
 //these allow us to declare properties and initialize them when we instantiate an object
+
+//NOTE: In a class, you need to use the val or var keywords before the parameters in the primary constructor declaration.
+// This is to make constructor parameters accessible as PROPERTIES within the class
+// This allows you to access and use the values throughout the class.
+
+//WITHOUT the val or var keywords before the constructor parameters, the parameters will not be considered properties of the class.
+//Instead, they will be treated as local variables within the primary constructor.
+//This means you won't be able to access or use these values outside the constructor.
+//Example class MyClass (val a:Int, x:Int) ..x is only a local variable, unlike a which is a class property
+
 class Person (val name: String, val age: Int) //no default values set in the properties
+
+
 class Hobbies (val myHobby: String)
 
-//the init block
-//since the primary constructor has no code other than properties and their data types
-//we use an initializer block to make use of more logic from the properties
-class MyEmployee(fName: String, lName: String, val yearsWorked: Int, private val yearBorn: Int){
-    //declaration of properties of a class needs to ALWAYS be in the class, not inside an init block or member function
-    val empFullName = "$fName $lName"
-    val empAge: Int
-    private val currentYear = 2023
 
-    init {
-        empAge = currentYear - yearBorn
-    }
 
-    //you can also use functions inside a class, called member functions
-    fun allTheBest(): String{
-        return "All the best to $empFullName!"
-    }
-
-}//end class
 
 //MyFamily class
 class MyFamily(val name: String, val age: Int){
