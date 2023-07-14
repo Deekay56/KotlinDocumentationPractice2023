@@ -1,14 +1,4 @@
-/* A) COMMENTS */
-
-// end of line comment. used per line.
-
-/*
-multiline comment. can be used as needed as long as its enclosed.
-another sentence to show.
-another sentence to show
- */
-
-/* B) MISCELLANEOUS NOTES */
+/* A) NOTES */
 
 /* Kotlin is statically typed, meaning the code is continuously compiled for errors before execution.
 It uses less code and supports null safety.
@@ -40,9 +30,32 @@ This is not encouraged.
 
 
 
-END OF MISC NOTES  */
+ */
 
-/* C) MAIN FUNCTION */
+
+/* END OF NOTES */
+
+
+/* B) COMMENTS */
+
+//Comments are used in Kotlin code to either explain the code or make notes for future reference.
+
+// <- This on the left is called an End of line comment. Used per line.
+
+/*
+
+Encasing this and the below two lines is a Multiline comment. It can be used as needed as long as its enclosed.
+another sentence to show the M-Comment
+another sentence to show the M-Comment
+
+ */
+
+
+/* END OF COMMENTS  */
+
+
+/* C) THE MAIN FUNCTION */
+
 /*
 * This function is the start of every Kotlin program, and it controls program execution.
 * It calls to other functions and classes to execute programs.
@@ -53,7 +66,7 @@ fun main() {
     println("Hello World!") //most common beginner program
     println(23)
 
-    /* VARIABLES */
+    /* 1) VARIABLES */
 
     //basic variables and their data types
     //kotlin automatically infers the data types once the value is given for a variable
@@ -97,6 +110,8 @@ fun main() {
     println(myNumToString)
     println(myNumToDouble)
 
+    /* 2) OPERATORS */
+
     //assignment operators. need to use the "var" and NOT "val" keyword to reassign
     var numToSum = 5 //+= others are -=, *=, /=, %=, and a simple =
     numToSum+=2
@@ -131,6 +146,9 @@ fun main() {
     }else{
         println("This statement is not true.")
     }
+
+    /* 3) STRINGS */
+
 
     //accessing and modifying a string
     val customString1 = "Inglourious Bastards"
@@ -171,7 +189,9 @@ fun main() {
 
     println("My new name is now $myNewName.")
 
-    //Type Conversion
+    /* 4) TYPE CONVERSION */
+
+
     //changing the data typeof a variable to another type
     //others include toByte(), toShort(), toLong(), toFloat(), and toChar()
     val customInt = 55
@@ -179,11 +199,14 @@ fun main() {
     println(customIntToDouble)
 
 
-    //boolean expressions
+    /* 5) BOOLEANS */
+
     val boolNum1 = 5
     val boolNum2 = 6
 
     println(boolNum1>boolNum2)//will print "false"
+
+    /* 6) CONTROL FLOW - IF-ELSE EXPRESSION */
 
     //simple else-if conditional (including if-else)
     val customAge = 40
@@ -242,6 +265,7 @@ fun main() {
         }
     }
 
+    /* 7) CONTROL FLOW - WHEN-ELSE EXPRESSION */
 
     //when-else conditional, useful in a scenario of many if-elses
     println("Please choose from a list of Dad, Mum, Big Bro, Small Bro, and Carol to find out their names:")
@@ -338,7 +362,7 @@ fun main() {
     println(customResult2)
 
 
-
+    /* 8) CONTROL FLOW - WHILE LOOP */
 
     //while loop, executes code as long as the specified condition is true.
     //in this case, 0 will be printed, as well as all numbers until 5
@@ -350,6 +374,8 @@ fun main() {
         whileLoopNumber++
     }
 
+    /* 9) CONTROL FLOW - DO-WHILE LOOP */
+
     //a do-while loop will execute at least once, even if the condition checked is false.
     // in this case, 6 will be printed, and the loop quits.
     //Again, do not forget to increase the variable used in the condition otherwise the loop will never end!
@@ -359,17 +385,90 @@ fun main() {
         doWhileLoopNumber++
     }while (doWhileLoopNumber<=5)
 
+
+    /* 8 Add.) CONTROL FLOW - FOR LOOP */
+
+    //the for loop is used to iterate over a collection of elements or a range of values.
+    // It allows you to execute a block of code repeatedly, once for each element or value in the specified range.
+    //the loop can work on ranges, arrays, strings, and collections.
+
+    //for loop in an immutable list
+    val myForLoopList = listOf('A','B','C')
+
+    for (loopNumber in myForLoopList){
+        print("$loopNumber ")
+    }
+
+
+    //for loop in a range
+    for (looper in 1..5){
+        print("$looper ")
+    }
+
+    //for loop in a range with step-2 (can be any number)
+    for (loopStepper in 1..10 step 2){
+        print("$loopStepper ")
+    }
+
+    //for loop iterate downwards through a range
+    //if you wish, you can also add the step to jump values
+    for (downLooper in 'F' downTo 'A'){
+        print("$downLooper ")
+    }
+
+    //for loop iterate with a condition to print only even numbers in the range
+    for (evenCheckLooper in 1..10){
+        if (evenCheckLooper % 2 == 0){
+            print("$evenCheckLooper ")
+        }
+    }
+
+    //for loop iterate a list using an index
+    val loopTestList = listOf(7, 6, 8, 3)
+
+    for (index in loopTestList.indices){
+        print("${loopTestList[index]} ")
+    }
+
+    //for loop iterate a list using the withIndex() function
+    val myAlphabetList = listOf('A', 'B', 'C', 'D')
+
+
+    for((index, value) in myAlphabetList.withIndex()){
+        println("The letter at index position $index is $value.")
+    }
+
+    //for loop iterate through a string
+    //note you can also loop with an index (where you use the indices property)
+    //note you can also use the withIndex() function
+
+    val myStringToLoop = "Fantastic!"
+
+    for (stringLooper in myStringToLoop){
+        print("$stringLooper ")
+    }
+
+
+
+
+
+    /* 10) CONTROL FLOW - BREAK STATEMENT */
+
     //break statement, this will stop the loop at the point specified
     //in this case; the loop breaks after printing 2
     var breakLoopNumber = 0
 
     while (breakLoopNumber<=5){
+        // if (breakLoopNumber == 3) break <- the break line can also be here
         print(breakLoopNumber )
         breakLoopNumber++
         if (breakLoopNumber == 3) break
     }
 
+    /* 11) CONTROL FLOW - CONTINUE STATEMENT */
+
     //continue statement, this will break one iteration IN THE LOOP, if a condition occurs, and then continues with the rest of the loop.
+    //In this case,the code skips printing the value when the loop number is 4 and prints the value otherwise.
     var continueLoopNumber = 0
 
     while (continueLoopNumber<=5){
@@ -394,7 +493,21 @@ fun main() {
         customLetter++
     }
 
+    /* 12) ARRAYS */
+
     //arrays. store multiple values in a variable
+
+    //NOTE: In most programming languages, arrays only hold elements of the same data type.
+    //However, with Kotlin,arrays can hold elements with different data types because the arrays can be of type Array<Any>.
+    //Since the arrayOf() function is used, the Kotlin compiler infers the type of the array to be Array<Any>
+    //This means it can store elements of any type (Any is the root type in Kotlin).
+    //It's important to note that this behavior is specific to Kotlin and may not be applicable in other programming languages.
+
+    val myCustomArray = arrayOf("Ar","Se","Ti", 1)
+
+    println(myCustomArray[3]) //to print out 1
+
+    //Second array example, this time similar data types
     val carArray = arrayOf("Benz","Volvo","Jeep","Subaru","Toyota")
 
     println(carArray[0]) //access elements in the array with an index number encase in square brackets
