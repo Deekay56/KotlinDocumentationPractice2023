@@ -1,11 +1,22 @@
 
+
+
+
 fun main (){
 
-    //for loop iterate through a string
-    val myStringToLoop = "Fantastic!"
+    println("Enter a whole number to see if odd or even:")
 
-    for (stringLooper in myStringToLoop){
-        print("$stringLooper ")
+    val input = readln().toIntOrNull()
+
+    if (input != null) {
+        val result = when {
+            oddNum(input) -> "The number is odd!"
+            evenNum(input) -> "The number is even!"
+            else -> "Neither even or odd!"
+        }
+        println(result)
+    }else{
+        println("Invalid input!")
     }
-}
 
+}

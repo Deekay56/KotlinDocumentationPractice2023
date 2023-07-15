@@ -27,9 +27,6 @@ var badVariable = 9 //variables can be declared at the top level, or globally, t
 This is not encouraged.
 
 
-
-
-
  */
 
 
@@ -268,6 +265,8 @@ fun main() {
     /* 7) CONTROL FLOW - WHEN-ELSE EXPRESSION */
 
     //when-else conditional, useful in a scenario of many if-elses
+    //
+
     println("Please choose from a list of Dad, Mum, Big Bro, Small Bro, and Carol to find out their names:")
 
     //val familyMember = readln() //can skip this and use the readln() function directly in the "when" clause
@@ -333,12 +332,11 @@ fun main() {
     }
     println(month)
 
-    //another simple when-else conditional
+    //another simple when-else conditional to check odd/even numbers
     println("Enter any whole number:")
 
     val input = readln().toLongOrNull() //converts input into long number, or null otherwise
     //note the long number, as the user might enter a number bigger than INT limits
-
 
     val customResult = when{
         input == null ->"Invalid input, enter a whole number!" //when the input cannot be converted to a whole integer
@@ -360,6 +358,44 @@ fun main() {
         else->"Please follow the instructions!"
     }
     println(customResult2)
+
+    //when-else can also check the input value in a range
+    println("Please enter any year between 1900 and 1959, and I will tell you the decade:")
+
+    val yearInput = readln().toIntOrNull()
+
+    if(yearInput != null) {
+        val decade = when (yearInput) {
+            in 1900..1909 -> "That was in the 1900s!"
+            in 1910..1919 -> "That was in the 1910s!"
+            in 1920..1929 -> "That was in the 1920s!"
+            in 1930..1939 -> "That was in the 1930s!"
+            in 1940..1949 -> "That was in the 1940s!"
+            in 1950..1959 -> "That was in the 1950s!"
+            else->"$yearInput is not in the range of years  requested!"
+        }
+        println(decade)
+    }else{
+        println("Invalid input!")
+    }
+
+
+    //when-else can also employ functions to carry the code needed to check for user input
+        println("Enter a whole number to see if odd or even:")
+
+        val myOddEvenInput = readln().toIntOrNull()
+
+        if (myOddEvenInput != null) {
+            val myOddEvenResult = when {
+                oddNum(myOddEvenInput) -> "The number is odd!"
+                evenNum(myOddEvenInput) -> "The number is even!"
+                else -> "Neither even or odd!"
+            }
+            println(myOddEvenResult)
+        }else{
+            println("Invalid input!")
+        }
+
 
 
     /* 8) CONTROL FLOW - WHILE LOOP */
@@ -424,6 +460,8 @@ fun main() {
     }
 
     //for loop iterate a list using an index
+    //We use the [] since the loop variable "index" is not looping through the elements themselves rather the index positions
+    //It retrieves each element using the index and prints it out.
     val loopTestList = listOf(7, 6, 8, 3)
 
     for (index in loopTestList.indices){
@@ -431,6 +469,7 @@ fun main() {
     }
 
     //for loop iterate a list using the withIndex() function
+    //to get both the index of the element and the value of the element
     val myAlphabetList = listOf('A', 'B', 'C', 'D')
 
 
@@ -447,8 +486,6 @@ fun main() {
     for (stringLooper in myStringToLoop){
         print("$stringLooper ")
     }
-
-
 
 
 
@@ -557,8 +594,47 @@ fun main() {
     println()
 
 
-    //functions
-    println() //one of the main predefined functions
+    /* NULL SAFETY CHECKS */
+
+    println("Please enter a distance (miles) and I will tell you how many km it is:")
+
+    val userChoice = readln().toDoubleOrNull()
+
+    //NOTE: When working with user input, it's generally a good practice to check for nullability and handle cases where the input might be null.
+    //This is because user input can be unpredictable, and it's essential to account for scenarios where the user might provide unexpected or invalid data.
+    //Checking for nullability allows you to validate the input and ensure that the necessary data is present before proceeding with further calculations or operations.
+    //It helps prevent potential runtime exceptions like NullPointerException and allows you to handle such cases gracefully.
+    //By using techniques like null checks, safe call operators (?.), or the Elvis operator (?:),you can handle nullability in a way that suits your requirements.
+    // This ensures that your code can handle different scenarios and provides appropriate feedback or takes alternative actions when necessary.
+
+    if(userChoice!=null) { //this is the null check
+        val distanceInMiles = userChoice * 1.60934
+
+        println("$userChoice miles is equal to $distanceInMiles km!")
+    }
+    else{
+        println("The input is invalid!")
+    }
+
+    //another null safety check
+    //output will be "null" since the distanceMetres is a potential null variable
+
+    //AGAIN: Null pointer exceptions occur when you try to access or perform operations on a variable or object that is null (has no value assigned to it).
+    //These exceptions can cause program crashes or unexpected behavior.
+    //By using null safety checks, you can avoid null pointer exceptions by...
+    //explicitly checking if a variable is null before accessing its properties or invoking its methods.
+    // If the variable is null, the null safety check allows the program to gracefully handle the situation without crashing or producing errors.
+
+    val distanceMetres: Int? = null
+
+    val distanceKm = distanceMetres?.div(1000)
+
+    println(distanceKm)
+
+
+    /* FUNCTIONS */
+
+    println() //one of the main predefined functions. prints out whatever is encased in the parentheses.
 
     //calling functions in the main function.
     //for the functions without any output in their body, they will not execute output unless you pass them through the println() function
@@ -652,6 +728,7 @@ fun main() {
 //-------------END OF MAIN FUNCTION-------------------------------------------------------------------------------------------------------------------------//
 
 }
+
 
 
 //functions are blocks of code that run when called/invoked by another part of the code
@@ -817,6 +894,11 @@ fun printSumWithUnit(a: Int, b: Int): Unit { //Unit type can be omitted. since t
 fun printSumWithUnit(a: Int, b: Int) {
     println("The sum of $a and $b is ${a + b}")
 }
+
+//functions used in the when-else section of code to check for odd or even numbers from user input
+fun oddNum(x: Int) = x%2 != 0
+fun evenNum(x: Int) = x%2 == 0
+
 
 //CLASSES:
 
