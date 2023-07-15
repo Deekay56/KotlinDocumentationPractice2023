@@ -348,6 +348,7 @@ fun main() {
     }
     println(customResult)
 
+    //
 
     //another simple when-else conditional
     println("Type either \"Cheetah\" or \"Snail\" from the list to see their speed:")
