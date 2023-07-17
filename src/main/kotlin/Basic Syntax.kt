@@ -503,6 +503,69 @@ fun main() {
         if (breakLoopNumber == 3) break
     }
 
+    /* 10 a) CONTROL FLOW - LABELLED BREAK STATEMENT */
+
+    //The following is a simple demonstration of a LABELLED BREAK statement.
+
+    //NOTE: The main difference between a normal 'break' and 'labelled break' is that the labelled break...
+    //allows you to break out of an outer loop based on a specific label, while regular break exits the innermost loop or control structure.
+
+    //customLoop@ is a label placed before the for loop. It acts as a marker or identifier for the loop.
+    //The outer loop iterates over the range 1..3, with the variable 'i' taking the values 1, 2, and 3.
+    //Inside the outer loop, there is another nested loop that iterates over the range 1..3, with the variable j taking the values 1, 2, and 3.
+    //The if statement checks that the value of j is equal to 3.
+    //If j is equal to 3, the break@customLoop statement is executed.
+    // It means that the program flow will break out of both the inner and outer loops, exiting the loop entirely.
+    //If j is not equal to 3, the println("i=$i j=$j") statement is executed, which prints the values of i and j to the console.
+
+
+    customLoop@for (i in 1..3){
+        for(j in 1..3){
+            if (j==3) {
+                break@customLoop
+            }
+            println("i=$i j=$j")
+        }
+    }
+
+    //Unlike the labelled break, the regular break, (also employed in the while loop above) only exits the loop (with variable j) where it is put in.
+    //The outer loop (the loop controlled by the variable i) will continue executing for its remaining iterations.
+    for (i in 1..3) {
+        for (j in 1..3) {
+            if (j == 3) {
+                break
+            }
+            println("i=$i j=$j")
+        }
+    }
+
+
+    /* 10 b) CONTROL FLOW - BREAK STATEMENT PLACEMENT */
+
+    //IF the break statement appears before the print statement, then all characters will be printed up to 'k'
+    //then the program will exit when the first 's' is reached, thus giving "Geek", and the program will exit
+    val name = "GeeksforGeeks"
+    for (i in name){
+        if(i == 's') {
+            break
+        }
+        print("$i")
+    }
+
+    println()
+    println()
+
+    //IF the break statement appears after the print statement, then all characters up to and including 's' will be printed
+    //thus, the output will be 'Geeks' before the loop is terminated by the break statement.
+    val name2 = "GeeksforGeeks"
+    for (i in name2){
+        print("$i")
+        if(i == 's') {
+            break
+        }
+    }
+
+
     /* 11) CONTROL FLOW - CONTINUE STATEMENT */
 
     //continue statement, this will break one iteration IN THE LOOP, if a condition occurs, and then continues with the rest of the loop.
