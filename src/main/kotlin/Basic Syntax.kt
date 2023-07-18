@@ -404,6 +404,7 @@ fun main() {
     //while loop, executes code as long as the specified condition is true.
     //in this case, 0 will be printed, as well as all numbers until 5
     //Do not forget to increase the variable used in the condition, otherwise the loop will never end!
+    //NOTE: use "var" to modify the changing value of the loop variable
     var whileLoopNumber = 0
 
     while (whileLoopNumber<=5){
@@ -435,7 +436,6 @@ fun main() {
     for (loopNumber in myForLoopList){
         print("$loopNumber ")
     }
-
 
     //for loop in a range
     for (looper in 1..5){
@@ -489,11 +489,12 @@ fun main() {
     }
 
 
-
     /* 10) CONTROL FLOW - BREAK STATEMENT */
 
     //break statement, this will stop the loop at the point specified
     //in this case; the loop breaks after printing 2
+    //NOTE: the placement of the break statement in relation to the print statement in a non-nested while loop does not affect the output
+    //the value equal to the break statement will not be printed, only those before
     var breakLoopNumber = 0
 
     while (breakLoopNumber<=5){
@@ -509,6 +510,7 @@ fun main() {
 
     //NOTE: The main difference between a normal 'break' and 'labelled break' is that the labelled break...
     //allows you to break out of an outer loop based on a specific label, while regular break exits the innermost loop or control structure.
+    //ALSO: labelled break is best used for a nested control structure, and not non-nested control structures, a break will be sufficient for that.
 
     //customLoop@ is a label placed before the for loop. It acts as a marker or identifier for the loop.
     //The outer loop iterates over the range 1..3, with the variable 'i' taking the values 1, 2, and 3.
@@ -565,6 +567,54 @@ fun main() {
         }
     }
 
+    //break statement in a while loop
+    //output same no matter the placement of the break statement
+
+    var whileLoopBreak  = 0
+    while (whileLoopBreak<=3){
+        print(whileLoopBreak)
+        whileLoopBreak++
+        if (whileLoopBreak == 1)break
+    }
+
+    println()
+    println()
+
+    /* 10 c) CONTROL FLOW - BREAK AND LABELLED BREAK FURTHER EXAMPLES */
+
+    //break statement in a for loop
+    //if break statement is before print statement, output will not include the value equal to the break statement
+    //vice-versa if the break statement is after the print statement
+
+    for (forLoopBreak in 0..3){
+        if (forLoopBreak == 2) break
+        print(forLoopBreak)
+    }
+
+    println()
+    println()
+
+    //break statement in a nested for loop
+    //the break statement will stop each time for the inner loop when '2' is encountered.
+    //then the code will go back to the outer loop for another iteration with the inner loop.
+
+    for (nestedOuterLoop in 1..3){
+        for (nestedInnerLoop in 1..5){
+            println("$nestedOuterLoop $nestedInnerLoop")
+            if (nestedInnerLoop == 2) break
+        }
+    }
+
+    println()
+
+    //labelled break statement in a nested for loop
+    //this will allow the code to exit the inner and outer loop altogether, as compared to a regular break statement
+    labelbreak@ for (nestedOuterLoop in 1..3){
+        for (nestedInnerLoop in 1..5){
+            println("$nestedOuterLoop $nestedInnerLoop")
+            if (nestedInnerLoop == 2) break@labelbreak
+        }
+    }
 
     /* 11) CONTROL FLOW - CONTINUE STATEMENT */
 
