@@ -597,6 +597,7 @@ fun main() {
     //break statement in a nested for loop
     //the break statement will stop each time for the inner loop when '2' is encountered.
     //then the code will go back to the outer loop for another iteration with the inner loop.
+    //this will not break the outer loop
 
     for (nestedOuterLoop in 1..3){
         for (nestedInnerLoop in 1..5){

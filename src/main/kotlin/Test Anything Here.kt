@@ -27,9 +27,11 @@ fun main(){
     println()
 
     //unlabelled continue statement in a nested for loop
+    //this will only skip the iteration for the inner loop
     for (nestedForLoopOutContinue in 0..3){
         for (nestedForLoopInContinue in 0..3){
             println("$nestedForLoopOutContinue $nestedForLoopInContinue")
+            if(nestedForLoopInContinue == 2) continue
         }
     }
 
