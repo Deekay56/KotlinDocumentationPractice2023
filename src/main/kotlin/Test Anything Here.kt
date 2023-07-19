@@ -16,7 +16,7 @@ fun main(){
     //unlabelled continue statement in a simple for loop
     //The continue statement is placed after the print statement.
     //This means that the print statement is executed before the continue statement is encountered.
-    //Therefore, the value 2 is printed in the output.
+    //Therefore, the value 2 is printed in the output (0, 1, 2, 3)
 
     for(forLoopSimpleContinue in 0..3){
         print(forLoopSimpleContinue)
@@ -26,5 +26,14 @@ fun main(){
     println()
     println()
 
+    //unlabelled continue statement in a nested for loop
+    for (nestedForLoopOutContinue in 0..3){
+        for (nestedForLoopInContinue in 0..3){
+            println("$nestedForLoopOutContinue $nestedForLoopInContinue")
+        }
+    }
+
+    println()
+    println()
 
 }
