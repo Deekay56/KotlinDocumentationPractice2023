@@ -633,7 +633,7 @@ fun main() {
 
     }
 
-    //another version of continue, using a character in the alphabet
+    //another version of unlabelled continue, using a character in the alphabet
     var customLetter = 'A'
 
     while (customLetter<='F'){
@@ -644,6 +644,80 @@ fun main() {
         print(customLetter)
         customLetter++
     }
+
+    //unlabelled continue statement in a simple for loop
+    //The continue statement is placed before the print statement.
+    //This means that when the condition forLoopSimpleContinue == 2 is true, the continue statement is executed.
+    // This causes the loop to skip the print statement for that iteration.
+    //all the other iterations after that are printed, in this case, its only 3.
+    // Therefore, the value 2 is not printed in the output (0, 1, 3)
+
+    for(forLoopSimpleContinue in 0..3){
+        if (forLoopSimpleContinue == 2) continue
+        println(forLoopSimpleContinue)
+    }
+
+    println()
+    println()
+
+    //unlabelled continue statement in a simple for loop
+    //with the continue statement placed after the print statement
+    //in this code, all iterations are printed out before the continue statement
+    //thus it has no effect on the output.
+
+    for(forLoopSimpleContinue in 0..3){
+        println(forLoopSimpleContinue)
+        if (forLoopSimpleContinue == 2) continue
+    }
+
+    println()
+    println()
+
+    //unlabelled continue statement in a nested for loop, where the continue statement appears after the print statement
+    //the continue statement within the inner loop doesn't affect the output
+    //because all the inner loop iterations have been executed and printed before the continue statement has a chance to take effect.
+
+    for (nestedForLoopOutContinue in 0..3){
+        for (nestedForLoopInContinue in 0..3){
+            println("$nestedForLoopOutContinue $nestedForLoopInContinue")
+            if(nestedForLoopInContinue == 2) continue
+        }
+    }
+
+    println()
+    println()
+
+    //unlabelled continue statement in a nested for loop, where the continue statement appears before the print statement
+    //the continue statement will skip 2 for each iteration, but print all other values in the inner loop (0,1,3)
+    //note that the continue statement inside the inner loop affects the printing of 2,and...
+    //since 2 cannot be printed, its corresponding nestedForLoopOutContinue values in the outer loop also cannot be seen in the output.
+
+    for (nestedForLoopOutContinue in 0..3){
+        for (nestedForLoopInContinue in 0..3){
+            if(nestedForLoopInContinue == 2) continue
+            println("$nestedForLoopOutContinue $nestedForLoopInContinue")
+
+        }
+    }
+
+    println()
+    println()
+
+    /* TO DO LABELLED CONTINUE LATER */
+
+
+    /* RECAP OF BREAK AND CONTINUE STATEMENTS */
+
+    //-> continue statement:
+
+    //When encountered in a loop, it skips the remaining code inside the current iteration.
+    //The loop then proceeds to the next iteration, and subsequent iterations are not affected.
+    //It does not terminate the loop; it only affects the current iteration.
+
+    //-> break statement:
+
+    //When encountered in a loop, it immediately terminates the loop, regardless of whether the loop has completed all iterations or not.
+    //The program continues with the code after the loop, skipping any remaining iterations.
 
     /* 12) ARRAYS */
 
