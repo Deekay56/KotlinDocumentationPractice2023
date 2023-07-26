@@ -146,6 +146,17 @@ fun main() {
 
     /* 3) STRINGS */
 
+    //a string is an array of characters
+    //In Kotlin, by default, they are immutable.
+    //when we declare a variable using var, like var a = "String",
+    //it means we are creating a mutable variable a and initializing it with a string value "String."
+    //The mutability here refers to the variable "a", and not the string itself.
+    //You can change the value of the variable "a" to point to a different string,
+    //but you cannot change the contents of the original string it was initially assigned.
+
+    val myString = "Hello"
+
+    println(myString)
 
     //accessing and modifying a string
     val customString1 = "Inglourious Bastards"
@@ -186,8 +197,22 @@ fun main() {
 
     println("My new name is now $myNewName.")
 
-    /* 4) TYPE CONVERSION */
+    //accessing elements from a string
+    for(i in myString.indices){
+        println(myString[i])
+    }
 
+    //some examples of string properties
+    val myStringProperties = "Jambalaya!"
+
+    println(myStringProperties.length) //shows the length (a singular number) of the string
+
+    println(myStringProperties[3]) //outputs the element (or letter in this case) at index 3
+
+    println(myStringProperties.subSequence(0,3)) //outputs a section of the string from the index points chosen
+
+
+    /* 4) TYPE CONVERSION */
 
     //changing the data typeof a variable to another type
     //others include toByte(), toShort(), toLong(), toFloat(), and toChar()
@@ -437,10 +462,38 @@ fun main() {
         print("$loopNumber ")
     }
 
+    println()
+
     //for loop in a range
     for (looper in 1..5){
         print("$looper ")
     }
+
+    println()
+
+    //ranges in characters
+    for (myLetter in 'a'..'z'){ //all letters including a and z
+        print("$myLetter ")
+    }
+
+    println()
+
+    //ranges in numbers
+    for(customNum in 0..10){ //all numbers including 0 and 10
+        print("$customNum ")
+    }
+
+    println()
+
+    //break and continue in a range. refer to both above in the while loop
+    for (mLetter in 'a'..'h'){
+        if(mLetter == 'f'){
+            continue //replace with break if need be
+        }
+        print("$mLetter ")
+    }
+    println()
+
 
     //for loop in a range with step-2 (can be any number)
     for (loopStepper in 1..10 step 2){
@@ -685,7 +738,7 @@ fun main() {
 
     //unlabelled continue statement in a simple for loop
     //with the continue statement placed after the print statement
-    //in this code, all iterations are printed out before the continue statement
+    //in this code, all iterations are printed out before the continue statement (0,1,2,3)
     //thus it has no effect on the output.
 
     for(forLoopSimpleContinue in 0..3){
@@ -742,6 +795,7 @@ fun main() {
     //When encountered in a loop, it immediately terminates the loop, regardless of whether the loop has completed all iterations or not.
     //The program continues with the code after the loop, skipping any remaining iterations.
 
+
     /* 12) ARRAYS */
 
     //arrays. store multiple values in a variable
@@ -754,17 +808,22 @@ fun main() {
 
     val myCustomArray = arrayOf("Ar","Se","Ti", 1)
 
+    println()
+
     println(myCustomArray[3]) //to print out 1
+
+    println()
 
     //Second array example, this time similar data types
     val carArray = arrayOf("Benz","Volvo","Jeep","Subaru","Toyota")
 
     println(carArray[0]) //access elements in the array with an index number encase in square brackets
-    //here we access the first element at index 0
+    //here we access the first element at index 0, which is "Benz"
 
     carArray[0] = "Ford" //we can also change the value of the element and assign a new one
 
-    println(carArray.size) //array size is 5
+    println(carArray.size) //array size is 5.
+    // size is a property of the array
 
     if ("Jeep" in carArray){ //we can use the in operator to find if an element exists in an array
         println("This car exists!")
@@ -772,11 +831,14 @@ fun main() {
         println("This car does not exist!")
     }
 
+    println()
+
     //for loop (as a continuation of the Car array example)
     for (car in carArray){ //we can loop through an array using the "for loop" to get the elements in the array
         print("$car, ")
     }
 
+    println()
 
     //same array loop concept for integers
     val loopNums = arrayOf(4, 6, 8, 5, 7, 8)
@@ -785,28 +847,10 @@ fun main() {
         print("$lnum ")
     }
 
-    //ranges in characters
-    for (myLetter in 'a'..'z'){ //all letters including a and z
-        print("$myLetter ")
-    }
-
-    //ranges in numbers
-    for(customNum in 0..10){ //all numbers including 0 and 10
-        print("$customNum ")
-    }
-    println()
-
-    //break and continue in a range. refer to both above in the while loop
-    for (mLetter in 'a'..'z'){
-        if(mLetter == 'f'){
-            continue //replace with break if need be
-        }
-        print("$mLetter ")
-    }
     println()
 
 
-    /* NULL SAFETY CHECKS */
+    /* 13) NULL SAFETY CHECKS */
 
     println("Please enter a distance (miles) and I will tell you how many km it is:")
 
@@ -844,7 +888,17 @@ fun main() {
     println(distanceKm)
 
 
-    /* FUNCTIONS */
+    /* 14) FUNCTIONS */
+
+    //introduction after the main function.
+
+    //sample built-in function
+    val numOne = 12
+    val numTwo = 4
+
+    //rem() is a function that gives the remainder when a number is divided by another
+    //in this case the remainder is 0
+    println(numOne.rem(numTwo))
 
     println() //one of the main predefined functions. prints out whatever is encased in the parentheses.
 
@@ -941,16 +995,22 @@ fun main() {
 
 }
 
-
-
 //functions are blocks of code that run when called/invoked by another part of the code
 //you can pass data called parameters into a function
 //you can have as many parameters as you wish
 //remember parameters are read-only or val by default, so don't use val or val, as explained further below.
 
+
 //NOTE: Functions DO NOT have constructors, and only have parameters e.g., myFun(a:Char, b: Int)
 //NOTE: When declaring function parameters, you cannot use the val or val keywords.
 //The val keyword is used to declare properties (variables) within a CLASS, not for function parameters.
+
+//functions can also return values, and also encapsulate logic into reusable blocks of code.
+
+//functions can be said, in general, to be either user-defined or built-in.
+
+//examples of built-in functions include main(), arrayOf(), sum() and println()
+
 
 fun myFunc(firstName: String){
     println("$firstName Doe.")
@@ -1122,6 +1182,7 @@ fun evenNum(x: Int) = x%2 == 0
 
 class Book { //name starts with an upper case letter
             //this class has the default values set in the properties
+
     var pages = 320 //properties of the class initialized with values
     val title = "Best of the Rest"
     val author = "Robert Leeds"
@@ -1190,11 +1251,13 @@ class MyEmployee(fName: String, lName: String, val yearsWorked: Int, yearBorn: I
 class MyFamily(val name: String, val age: Int){
 
     val yearBorn: Int
+
     //all properties to be accessed outside the class need to be declared outside the init block
-    //If you place the yearBorn property inside the init block,
-    // it will be a local variable and not accessible outside the init block or from other parts of the class.
+    //If you place the yearBorn property inside the init block...
+    //...it will be a local variable and not accessible outside the init block or from other parts of the class.
     // The yearBorn will be limited in scope to the init block,
     // and you won't be able to access it in the main function or anywhere else in the class.
+
     init {
         val currentYear = 2023
         yearBorn = currentYear - age
