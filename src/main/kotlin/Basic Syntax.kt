@@ -888,7 +888,7 @@ fun main() {
     println(distanceKm)
 
 
-    /* 14) FUNCTIONS */
+    /* 14) --- FUNCTIONS --- */
 
     //introduction after the main function.
 
@@ -900,17 +900,48 @@ fun main() {
     //in this case the remainder is 0
     println(numOne.rem(numTwo))
 
-    println() //one of the main predefined functions. prints out whatever is encased in the parentheses.
+    println() //one of the main predefined functions. prints out whatever is encased in the parentheses. jumps a line in the code.
 
     //calling functions in the main function.
     //for the functions without any output in their body, they will not execute output unless you pass them through the println() function
-    sum(10, 10)
+    sum(10, 10) //this is a function call
     diff(10, 5)
 
     prod(5, 7) //this one will output only because the function body has a print function
     myFunc("David") //same to this one
 
+    greetings() //the function being called already has a named string parameter "David", so it will output that.
+               //one can however invoke the function with another value,
+               // and that value will replace the argument in the function's parentheses.
+
     myForLoop()
+
+    //Function Literals
+
+    //they include anonymous functions and lambda expressions
+    //these are best used in the main() function
+
+    //anonymous function example
+    val areaSquare = fun(l:Int, h:Int):Int {
+        return l*h
+    }
+
+    println("The area of this square is ${areaSquare(6,7)}km2.")
+
+    //lambda expression example
+    //similar to anon function, but syntax is shorter and more concise
+    //recommended when creating a function with only one expression
+
+    val perimeterSquare = {l:Int-> 4*l} //the expression itself is in the brackets {}
+                                       //the return type is optional since...
+                                      //...Kotlin can use type inference to deduce the data type of the return value
+
+    println("The perimeter of this square is ${perimeterSquare(6)}km.")
+
+    //calling the myStudent() function with named arguments, note that the order of the arguments is changed
+
+    myStudent(sRollNo = 565, sGrade = "Grade 7", sName = "John" )
+
 
     //a bit different for the below function call
     val myCountryList: List<String> = myForLoopWithReturn() //a variable that takes holds a list of Strings from the myForLoopWithReturn() function
@@ -942,6 +973,18 @@ fun main() {
     whileLoopTestIndices()
 
     printSumWithUnit(5, 7)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /* Class Instantiations */
@@ -995,9 +1038,10 @@ fun main() {
 
 }
 
-//functions are blocks of code that run when called/invoked by another part of the code
-//you can pass data called parameters into a function
-//you can have as many parameters as you wish
+//functions are blocks of code that run when called/invoked by another part of the code.
+//why functions? modularity (breakable),  reusable, abstraction of complex logic, and also improved readability of code.
+//you can pass data called parameters into a function, also called arguments.
+//you can have as many parameters as you wish.
 //remember parameters are read-only or val by default, so don't use val or val, as explained further below.
 
 
@@ -1012,21 +1056,69 @@ fun main() {
 //examples of built-in functions include main(), arrayOf(), sum() and println()
 
 
+
 fun myFunc(firstName: String){
     println("$firstName Doe.")
 }
+
+
+//return statement
+//functions have the ability to return values, which are passed back to where the function was evoked.
+//for it to work, we need to put a return type to the function header
+//and also a return statement in the function body
 
 fun sum(a: Int, b: Int): Int { //simple function with two parameters and an Int return type, and a body
     return a + b
 }
 
 fun diff(a: Int, b: Int) = a-b //simple function with two parameters but doesn't have a body
-                              // this is an expression function, where the body is the expression
+                              // this is a single expression function, where the body is the expression
 
 fun prod(a:Int, b:Int){ //simple function that does not return anything, or a void function.
                        // it simply prints out a product value
     println("The product is ${a*b}")
 }
+
+//when calling a function with arguments in the main() function, the arguments should be passed in the order defined in the function
+//If you're not using named arguments, then the arguments should be passed in the order they are defined in the function.
+//This is the default behavior in Kotlin.
+//If you're using named arguments, then you can pass the arguments in any order by explicitly specifying the parameter names in the function call.
+
+//example below
+
+fun myStudent( sName: String= "", sGrade: String = "Grade 5" , sRollNo: Int = 12 ) {
+
+    println("The name of the student is: $sName")
+    println("The grade of the student is: $sGrade")
+    println("The roll no of the student is: $sRollNo")
+} //end of function, check the call in the main() function
+
+
+//functions can be simplified further through literals
+//these are unnamed functions that can be treated as a value.
+//they include anonymous functions and lambda expressions
+//these are best used in the main() function, check above in main() function...
+
+
+//a function can have named arguments.
+// these give values to the arguments if none are given during a function call
+
+fun greetings(gName: String = "David"){
+    println("Hello $gName")
+}
+
+//Function Recursion
+
+//A function that calls itself is a recursive function
+//The process of repetition id called recursion
+//When a function os called, there is either a normal call or a recursive call.
+//Since most standard function calls are normal, this section focuses on how a recursive call works.
+
+//Every recursive function should have a condition for termination otherwise there is an infinite loop.
+
+
+
+
 
 //simple function to evaluate if a condition is true then execute, else do something else
 fun conditional(a: Int, b: Int): Int {
