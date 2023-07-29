@@ -1,27 +1,41 @@
-//The code below defines a function called callMe, which takes an integer parameter "a"
-//It prints the value of the parameter "a"
-//It checks if "a" is greater than 0.
-//If "a" is greater than 0, it calls the callMe function again with the argument a-1.
-// This is a recursive call, meaning the function calls itself with a smaller value of "a".
-//The recursive call continues until a becomes 0 or negative.
-//Each time the function is called recursively, it prints the value of "a" again.
+/*
+*
+*
+Consider the following steps during the backtracking process when the recursion returns from the deepest call:
 
-//The main function then calls the callMe function with the integer argument "5" or whatever deems fit.
-//So, when the main function is called, it will invoke the callMe function with 5.
-//The callMe function will print 5, then call itself again with a-1, which is 4. This process will repeat until a becomes 0, resulting in the output: 5,4,3,2,1,0.
+The function myRecursive(0) is called, and since recursiveNum is not greater than 0, it does not make any recursive call and immediately proceeds to the print(0) statement. It prints 0 and returns to its previous call, which is myRecursive(1).
+
+myRecursive(1) had made a recursive call to myRecursive(0), and after myRecursive(0) completes, it proceeds to the print(1) statement. It prints 1 and returns to its previous call, which is myRecursive(2).
+
+myRecursive(2) had made a recursive call to myRecursive(1), and after myRecursive(1) completes, it proceeds to the print(2) statement. It prints 2 and returns to its previous call, which is myRecursive(3).
+
+This process continues for each value of recursiveNum until all the recursive calls are completed. Each time a recursive call returns, the corresponding value of recursiveNum is printed.
+
+Eventually, the last call to myRecursive(5) is reached, which had made a recursive call to myRecursive(4). After myRecursive(4) completes, it proceeds to the print(5) statement. It prints 5 and returns to the main function.
+
+As a result, the print statements execute during the backtracking phase, and the values are printed in ascending order: 012345.
+
+In essence, each recursive call waits for the next one to complete before executing the print statement. This is why the numbers are printed in ascending order, following the sequence of function calls that were made during the recursion.
 
 
-fun callMe(a: Int){
+*
+*
+* */
 
-    print("$a ")
 
-    if (a>0) {
-        callMe(a-1)
+fun myRecursive(recursiveNum: Int){
+
+    if (recursiveNum>0){
+        myRecursive(recursiveNum-1)
     }
+
+    print(recursiveNum)
+
+
 }
 
 
 fun main() {
-
-    callMe(5)
+    
+    myRecursive(5)
 }

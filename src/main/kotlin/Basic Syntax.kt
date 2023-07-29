@@ -926,7 +926,7 @@ fun main() {
         return l*h
     }
 
-    println("The area of this square is ${areaSquare(6,7)}km2.")
+    println("The area of this square is ${areaSquare(6,7)} kmsq.")
 
     //lambda expression example
     //similar to anon function, but syntax is shorter and more concise
@@ -941,6 +941,10 @@ fun main() {
     //calling the myStudent() function with named arguments, note that the order of the arguments is changed
 
     myStudent(sRollNo = 565, sGrade = "Grade 7", sName = "John" )
+
+    //function recursion call
+
+    callMe(5)
 
 
     //a bit different for the below function call
@@ -1116,8 +1120,29 @@ fun greetings(gName: String = "David"){
 
 //Every recursive function should have a condition for termination otherwise there is an infinite loop.
 
+//The code below defines a function called callMe, which takes an integer parameter "a"
+//It prints the value of the parameter "a"
+//It checks if "a" is greater than 0.
+//If "a" is greater than 0, it calls the callMe function again with the argument a-1.
+// This is a recursive call, meaning the function calls itself with a smaller value of "a".
+//The recursive call continues until a becomes 0 or negative.
+//Each time the function is called recursively, it prints the value of "a" again.
 
+//The main function then calls the callMe function with the integer argument "5" or whatever deems fit.
+//So, when the main function is called, it will invoke the callMe function with 5.
+//The callMe function will print 5, then call itself again with a-1, which is 4. This process will repeat until a becomes 0, resulting in the output: 5,4,3,2,1,0.
 
+fun callMe(a: Int){
+
+    print("$a ")
+
+    if (a>0) {
+        callMe(a-1)
+    }
+
+    //print("$a ") //note that if the print statement were to be put here after the if condition
+    //then the output would be in reverse from 0,1,2,3,4,5
+}
 
 
 //simple function to evaluate if a condition is true then execute, else do something else
