@@ -1140,8 +1140,22 @@ fun callMe(a: Int){
         callMe(a-1)
     }
 
-    //print("$a ") //note that if the print statement were to be put here after the if condition
-    //then the output would be in reverse from 0,1,2,3,4,5
+//print("$a ") //note that if the print statement were to be put here after the if condition
+//then the output would be in reverse from 0,1,2,3,4,5
+//this would be because the function, after making all the recursive calls from the if statement...
+//...would now return back to all its previous calls from 0 to 5, effected in the print statement
+//in other concise words, when the base case is reached and callMe(0) is executed, it prints the value 0.
+//At this point, the base case does not make any further recursive calls, so it returns directly to the previous instance of the function that called it,
+//which is callMe(1). The value 0 is printed, and callMe(1) continues its execution from where it left off, after the recursive call.
+//Then, the same process repeats for callMe(1) and its recursive call to callMe(0).
+//Once callMe(1) reaches its base case and prints 1, it returns to the previous instance callMe(2).
+//This process continues, with each recursive call returning to the previous instance and...
+//...printing its respective value until the original function call callMe(5) is reached and completes the execution.
+//So, in summary after the base case (0 in this example) is printed,
+//the function instances that were called in the recursion process print their respective values one by one as they return from their recursive calls.
+//This process continues until the initial function call completes...
+//..resulting in the reverse printing of values from the base case back to the original call.
+
 }
 
 
