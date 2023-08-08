@@ -889,8 +889,9 @@ fun main() {
 
 
     /* 14) --- FUNCTIONS --- */
+    /* Note all function calls in this section correspond to the functions outside the main function section. */
 
-    //introduction after the main function.
+    //Introduction and explanation of what functions are can be found after the main function section.
 
     //sample built-in function
     val numOne = 12
@@ -908,6 +909,8 @@ fun main() {
     diff(10, 5)
 
     prod(5, 7) //this one will output only because the function body has a print function
+
+
     myFunc("David") //same to this one
 
     greetings() //the function being called already has a named string parameter "David", so it will output that.
@@ -917,20 +920,25 @@ fun main() {
     myForLoop()
 
     //Function Literals
+    //These are functions that are not declared, but passed as expressions
 
     //they include anonymous functions and lambda expressions
     //these are best used in the main() function
 
-    //anonymous function example
+
+
+    //a) anonymous function example
+
     val areaSquare = fun(l:Int, h:Int):Int {
         return l*h
     }
 
     println("The area of this square is ${areaSquare(6,7)} kmsq.")
 
-    //lambda expression example
+    //b) lambda expression example
     //similar to anon function, but syntax is shorter and more concise
     //recommended when creating a function with only one expression
+    //syntax is usually val lName: dataType = {argument(s)->body}
 
     val perimeterSquare = {l:Int-> 4*l} //the expression itself is in the brackets {}
                                        //the return type is optional since...
@@ -938,13 +946,27 @@ fun main() {
 
     println("The perimeter of this square is ${perimeterSquare(6)}km.")
 
-    //calling the myStudent() function with named arguments, note that the order of the arguments is changed
+    //second lambda expression example
+    val testName = {
+        println("Dave")
+    }
 
+    testName() //also testName.invoke()
+
+
+
+
+    //calling the myStudent() function with named arguments, note that the order of the arguments is changed
     myStudent(sRollNo = 565, sGrade = "Grade 7", sName = "John" )
 
-    //function recursion call
+    //Recursion in Functions
 
+    //A simple recursive function call. Function refer outside main function
     callMe(5)
+
+    //Recursion as a means of finding the factorial of a number.
+    println("The factorial of this number is: "+myFactorial(3))
+
 
 
     //a bit different for the below function call
@@ -956,7 +978,9 @@ fun main() {
     println("Actually meant to be blank :)")
 
     myWhileLoop()
+
     myWhenElse()
+
     myForLoopWithRange()
 
     //you can instantiate functions with a variable
@@ -974,6 +998,7 @@ fun main() {
     println(indices)
 
     iterateRangeWithSkip()
+
     whileLoopTestIndices()
 
     printSumWithUnit(5, 7)
@@ -988,9 +1013,7 @@ fun main() {
 
 
 
-
-
-
+    /* Classes */
     /* Class Instantiations */
 
     //Book Class
@@ -1036,6 +1059,8 @@ fun main() {
 
     customBrand1.yearOfBrand(year = 2003)
     customBrand1.modelType()
+
+
 
 
 //-------------END OF MAIN FUNCTION-------------------------------------------------------------------------------------------------------------------------//
@@ -1159,6 +1184,63 @@ fun callMe(a: Int){
 }
 
 
+//Recursion as a means of finding the factorial of a number.
+
+
+// -> this first code will not work.
+//the function myFactorial does not have a base case, which is a condition to stop the recursion.
+//the function myFactorial will keep calling itself with a smaller variable, down and past 0 and into infinity.
+//This will result in an infinite loop and eventually cause a "StackOverflowError" because there is no base case to stop the recursion.
+//The base case is essential to stop the recursion and prevent infinite loops.
+
+/*
+fun myFactorial(factorialNum: Int):Int{
+
+    return factorialNum * myFactorial(factorialNum-1)
+}
+
+fun main(){
+    println("The factorial of this number is: "+myFactorial(5))
+}
+
+*/
+
+// -> this second code will work
+//the issue from the first code is fixed by adding a base case: if(factorialNum == 1) factorialNum.toLong().
+//When the factorialNum is equal to 1, the function simply returns 1, and the recursion stops.
+//This way, the function can correctly calculate the factorial of a given number...
+//...by repeatedly multiplying it with smaller factorial values until it reaches the base case.
+//the line factorialNum * myFactorial(factorialNum - 1) results in a function call with a number one less than the current one.
+//This is a crucial part of recursion because it breaks down the original problem into smaller, more manageable sub-problems.
+
+/*
+
+Let's find the factorial of 3 using this code:
+
+We call the myFactorial function with the argument 3.
+The function checks the base case: factorialNum == 1. Since factorialNum is 3, it does not equal 1, so we move to the else part.
+In the else part, we have factorialNum * myFactorial(factorialNum - 1). Here, factorialNum is 3. So we calculate 3 * myFactorial(3 - 1).
+We now have to calculate myFactorial(2). We call the myFactorial function again with the argument 2.
+The function checks the base case: factorialNum == 1. Since factorialNum is 2, it does not equal 1, so we move to the else part.
+In the else part, we have factorialNum * myFactorial(factorialNum - 1). Here, factorialNum is 2. So we calculate 2 * myFactorial(2 - 1).
+We now have to calculate myFactorial(1). We call the myFactorial function again with the argument 1.
+The function checks the base case: factorialNum == 1. Since factorialNum is 1, it equals 1. So the function returns 1.
+Now, we have the value of myFactorial(1), which is 1. We go back to the previous step where we calculated 2 * myFactorial(2 - 1). Replace myFactorial(1) with 1, so it becomes 2 * 1, which equals 2.
+Now, we have the value of myFactorial(2), which is 2. We go back to the previous step where we calculated 3 * myFactorial(3 - 1). Replace myFactorial(2) with 2, so it becomes 3 * 2, which equals 6.
+
+*/
+
+fun myFactorial(factorialNum: Int):Long{
+
+    //the base case to prevent infinite loop
+    return if(factorialNum == 1) factorialNum.toLong()
+
+    else
+
+        factorialNum * myFactorial(factorialNum-1)
+}
+
+
 //simple function to evaluate if a condition is true then execute, else do something else
 fun conditional(a: Int, b: Int): Int {
     if(a<b){
@@ -1258,10 +1340,6 @@ fun myForLoopWithRange(){
     }
 }
 
-class Square (height: Double,length: Double){  //a simple class to give the perimeter of a Square when called in the main function.
-                                               // Classes have first-letter caps
-    var perimeter = (height + length) * 2
-}
 
 fun iterateRangeWithSkip (){
     val myList = mutableListOf(16, 27, 81, 95, 57, 34, 77, 1, 55, 85, 23, 34)
@@ -1301,6 +1379,9 @@ fun printSumWithUnit(a: Int, b: Int) {
 //functions used in the when-else section of code to check for odd or even numbers from user input
 fun oddNum(x: Int) = x%2 != 0
 fun evenNum(x: Int) = x%2 == 0
+
+//end of functions section
+
 
 
 //CLASSES:
@@ -1376,6 +1457,12 @@ class MyEmployee(fName: String, lName: String, val yearsWorked: Int, yearBorn: I
     }
 
 }//end class
+
+
+class Square (height: Double,length: Double){  //a simple class to give the perimeter of a Square when called in the main function.
+    // Classes have first-letter caps
+    var perimeter = (height + length) * 2
+}
 
 
 //MyFamily class
