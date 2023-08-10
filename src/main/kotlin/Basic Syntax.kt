@@ -926,7 +926,6 @@ fun main() {
     //these are best used in the main() function
 
 
-
     //a) anonymous function example
 
     val areaSquare = fun(l:Int, h:Int):Int {
@@ -934,6 +933,27 @@ fun main() {
     }
 
     println("The area of this square is ${areaSquare(6,7)} kmsq.")
+
+    //or you can also remove the return statement
+    val perimeterRectangle = fun(rectLength:Int, rectHeight:Int): Int = 2*(rectLength+rectHeight)
+
+    val myPerimeterRectangle = perimeterRectangle(5, 7)
+
+    println("The perimeter of the rectangle is:"+myPerimeterRectangle+"meters.")
+
+
+    //a second example of an anonymous function
+    val checkEvenOrOdd = fun(cNum: Int): String{
+        return if (cNum % 2 == 0)
+            "Number is even!"
+        else
+            "Number is odd!"
+    }
+
+    val checkResult = checkEvenOrOdd(6)
+
+    println(checkResult)
+
 
     //b) lambda expression example
     //similar to anon function, but syntax is shorter and more concise
@@ -953,7 +973,12 @@ fun main() {
 
     testName() //also testName.invoke()
 
+    //third lambda expression example
+    val calcSum = {first:Int, second:Int -> first+second}
 
+    val calcSumResult = calcSum(6,7)
+
+    println(calcSumResult)
 
 
     //calling the myStudent() function with named arguments, note that the order of the arguments is changed

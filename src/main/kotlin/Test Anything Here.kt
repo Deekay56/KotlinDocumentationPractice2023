@@ -1,15 +1,13 @@
 
 
 fun main(){
-    val myName = {
-        println("MyName")
-    }
 
-    myName.invoke()
+    //or you can also remove the return statement
 
-    val calcSum = {a:Int, b:Int->a+b}
+    val perimeterRectangle = fun(rectLength:Int, rectHeight:Int): Int = 2*(rectLength+rectHeight)
 
-    calcSum(3,5)
+    val myPerimeterRectangle = perimeterRectangle(5, 7)
 
-    println(calcSum)
+    println(myPerimeterRectangle)
+
 }
