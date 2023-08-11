@@ -980,6 +980,11 @@ fun main() {
 
     println(calcSumResult)
 
+    //one last point to note:
+    //In an anonymous function, you need to use the return keyword explicitly.
+    //In a lambda expression, the last expression is automatically returned as the result of the lambda.
+
+
 
     //calling the myStudent() function with named arguments, note that the order of the arguments is changed
     myStudent(sRollNo = 565, sGrade = "Grade 7", sName = "John" )
