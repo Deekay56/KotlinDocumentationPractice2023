@@ -932,7 +932,7 @@ fun main() {
         return l*h
     }
 
-    println("The area of this square is ${areaSquare(6,7)} kmsq.")
+    println("The area of this square is ${areaSquare(6,7)} squared km.")
 
     //or you can also remove the return statement
     val perimeterRectangle = fun(rectLength:Int, rectHeight:Int): Int = 2*(rectLength+rectHeight)

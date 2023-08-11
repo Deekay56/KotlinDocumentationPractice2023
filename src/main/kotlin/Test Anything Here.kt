@@ -2,12 +2,19 @@
 
 fun main(){
 
-    //or you can also remove the return statement
+    //anon function
 
-    val perimeterRectangle = fun(rectLength:Int, rectHeight:Int): Int = 2*(rectLength+rectHeight)
+    val myName = fun(name: String):String = name
 
-    val myPerimeterRectangle = perimeterRectangle(5, 7)
+    val customName = myName("David")
 
-    println(myPerimeterRectangle)
+    println(customName)
 
+    //lambda expression
+
+    val myCar = {car:String->car}
+
+    val customCar = myCar("Jeep")
+
+    println(customCar)
 }
