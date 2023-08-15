@@ -889,6 +889,7 @@ fun main() {
 
 
     /* 14) --- FUNCTIONS --- */
+
     /* Note all function calls in this section correspond to the functions outside the main function section. */
 
     //Introduction and explanation of what functions are can be found after the main function section.
@@ -1024,6 +1025,8 @@ fun main() {
 
     secondHigherFunc(secondL)
 
+    /* Higher-Order functions...to be cont... */
+
 
     //calling the myStudent() function with named arguments, note that the order of the arguments is changed
     myStudent(sRollNo = 565, sGrade = "Grade 7", sName = "John" )
@@ -1071,6 +1074,28 @@ fun main() {
     whileLoopTestIndices()
 
     printSumWithUnit(5, 7)
+
+
+
+    /* 15) COLLECTIONS */
+
+    //used to store and manipulate groups of objects or data
+
+    //a) Lists - ordered collections that allow duplicates
+
+    //example 1
+    //val fruits  = listOf("apple", "banana", "mango")
+
+    //access the list element "apple"
+
+
+
+
+
+    //b) Sets - unordered collections of unique elements
+    //c) Maps - Collections of key-value pairs, where each key is unique
+    //d) Arrays - Fixed-size collections of elements with a specific type
+    //e) Sequences - Lazily evaluated collections of elements that can be processed in a pipeline.
 
 
 
@@ -1134,7 +1159,12 @@ fun main() {
 
 //-------------END OF MAIN FUNCTION-------------------------------------------------------------------------------------------------------------------------//
 
+
+
 }
+
+
+
 
 //functions are blocks of code that run when called/invoked by another part of the code.
 //why functions? modularity (breakable),  reusable, abstraction of complex logic, and also improved readability of code.

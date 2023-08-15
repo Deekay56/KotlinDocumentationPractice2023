@@ -1,26 +1,11 @@
 
-
 fun main(){
 
-    val l = {print("Hello, ")}
+    //example 1
+    val fruits  = listOf("apple", "banana", "mango")
 
-    fun higherFunc(lmbd:()->Unit){
-        lmbd()
-    }
+    //access the list element "apple"
 
-    higherFunc(l)
-
-    val p = { println("Girl :)") }
-
-    p()
-
-    val secondL = {a: Int, b: Int -> a+b}
-
-    fun secondHigherFunc(lmbd:(Int, Int)->Int){
-        val result = lmbd(3,5)
-        println("The sum is $result")
-    }
-
-    secondHigherFunc(secondL)
+    println(fruits[0])
 
 }
