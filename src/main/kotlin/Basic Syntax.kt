@@ -985,6 +985,45 @@ fun main() {
     //In a lambda expression, the last expression is automatically returned as the result of the lambda.
 
 
+    //Higher-order functions
+    //Simply put, these are functions that are passed as parameters or can pass other functions.
+    //Instead of data types as the function parameters, we can pass anon functions or lambdas
+    //Mostly, lambdas will be passed as function parameters in Kotlin functions
+
+
+    //a) passing a lambda expression returning Unit
+
+    //note the working is as follows:
+    //a lambda expression is defined and placed it inside a variable l
+    //then the variable is passed to a higher-order function higherFunc() that executes the lambda.
+    //The end result is that "Hello" will be printed to the console when you run the program.
+
+    val l = {print("Hello, ")} //the lambda expression
+
+    fun higherFunc(lmbd:()->Unit){  //a higher-order function that has one parameter lmbd
+                                   // this is the receiving parameter, and () indicates that it does not accept arguments
+                                  //Unit shows that the function does not return any value
+        lmbd()
+    }
+
+    higherFunc(l)
+
+    val p = { println("Girl :)") }
+
+    p()
+
+    //b) passing a lambda expression returning a value (Int, String, etc)
+    val secondL = {custInt1: Int, custInt2: Int -> custInt1+custInt2} //the lambda expression
+
+    fun secondHigherFunc(lmbd:(Int, Int)->Int){ //the higher-order function accepts one parameter lmbd
+                                                //inside the lmbd(), it accepts two Int arguments
+
+        val funcResult = lmbd(3,5)
+        println("The sum is $funcResult")
+    }
+
+    secondHigherFunc(secondL)
+
 
     //calling the myStudent() function with named arguments, note that the order of the arguments is changed
     myStudent(sRollNo = 565, sGrade = "Grade 7", sName = "John" )

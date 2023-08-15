@@ -2,19 +2,25 @@
 
 fun main(){
 
-    //anon function
+    val l = {print("Hello, ")}
 
-    val myName = fun(name: String):String = name
+    fun higherFunc(lmbd:()->Unit){
+        lmbd()
+    }
 
-    val customName = myName("David")
+    higherFunc(l)
 
-    println(customName)
+    val p = { println("Girl :)") }
 
-    //lambda expression
+    p()
 
-    val myCar = {car:String->car}
+    val secondL = {a: Int, b: Int -> a+b}
 
-    val customCar = myCar("Jeep")
+    fun secondHigherFunc(lmbd:(Int, Int)->Int){
+        val result = lmbd(3,5)
+        println("The sum is $result")
+    }
 
-    println(customCar)
+    secondHigherFunc(secondL)
+
 }
