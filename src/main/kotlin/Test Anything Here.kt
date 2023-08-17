@@ -1,11 +1,19 @@
 
 fun main(){
 
-    //example 1
-    val fruits  = listOf("apple", "banana", "mango")
+    //an array list is used to create a dynamic array
+    //this means that we can increase or decrease the size of the array as pre-requisites
+    //it also offers mutability features
+    //it may contain duplicates and is also not synchronized in nature
 
-    //access the list element "apple"
+    val myColorList = arrayListOf<String>()
 
-    println(fruits[0])
+    myColorList.add("blue")
+    myColorList.add("red")
+
+    println("$myColorList ")
+
+
+
 
 }

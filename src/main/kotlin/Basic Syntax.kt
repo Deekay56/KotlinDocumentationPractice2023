@@ -1081,19 +1081,100 @@ fun main() {
 
     //used to store and manipulate groups of objects or data
 
-    //a) Lists - ordered collections that allow duplicates
+    //a) Lists - ordered collections that allow duplicates of elements
 
-    //example 1
-    //val fruits  = listOf("apple", "banana", "mango")
+    //lists are either mutable or immutable, meaning that the elements can be modified, or not.
+    //by default, lists are immutable (listOf), and to make them mutable you need to use (mutableListOf)
+
+    //example 1 of an immutable list
+    //note that this is an immutable list, and elements cannot be changed or added
+    val fruits  = listOf("apple", "banana", "mango", "mango") //mango will be outputted twice, unlike sets
 
     //access the list element "apple"
 
+    println(fruits[0])
+
+    //iterate over the list
+
+    for (listLooper1 in fruits){
+        print("$listLooper1 ")
+    }
+
+    //example 1 of a mutable list
+    //this list allows us to modify and add or remove elements
+
+    val maleNames = mutableListOf("John", "Brian", "David")
+
+    //change "Brian" to "James"
+    maleNames[1] = "James"
+
+    println("$maleNames ")
+
+    //add "Charles" to the list
+    maleNames.add("Charles")
+
+    println("$maleNames")
 
 
 
+    //b) Sets - unordered collections of unique elements, meaning no duplicates
 
-    //b) Sets - unordered collections of unique elements
+    //the order of set elements does not have a big effect, as the first unique one is chosen.
+    //as with lists, there are two types of sets, which are immutable (setOf), and mutable (mutableSetOf)
+
+    //example 1 of an immutable set
+    val penColors = setOf("blue", "red", "red", "black","blue")
+
+    for(penCount in penColors){
+        print("$penCount ")
+    }
+
+    //example 1 of a mutable set
+
+    val femaleNames = mutableSetOf("Diana", "Jane", "Mary", "Mary", "Diana")
+
+    //add "Caroline" to the set.
+    //very important to see what the output is after that, given that this is a set and not a list
+    femaleNames.add("Caroline")
+
+    println("$femaleNames ")
+
+
     //c) Maps - Collections of key-value pairs, where each key is unique
+
+
+    //map keys hold only one value for each key, and each key maps to exactly one value, not more
+    //maps store  logical connections between two objects, like a city and country, or a person and age
+
+    //as with lists and sets, they can be immutable (mapOf) or mutable (mutableMapOf)
+
+    val cityToCountry2 = mapOf("Nairobi" to "Kenya", "Kigali" to "Rwanda", "Cairo" to "Egypt")
+
+    /* access all key value pairs */
+    for (cityCountryLooper in cityToCountry2){
+        println("${cityCountryLooper.key} is the capital of ${cityCountryLooper.value}.")
+    }
+
+    //access only keys
+    for (cityCountryLooper in cityToCountry2.keys){
+        println(cityCountryLooper)
+    }
+
+    //example 1 of a mutable map
+
+    val personToAge = mutableMapOf("Reggie" to 23, "Mark" to 43, "Sarah" to 36)
+
+    //add a key-value pair to the map
+    personToAge["Alice"] = 45
+
+    println("$personToAge ")
+
+    //remove a key-value pair from the map, this is done using only the key
+    personToAge.remove("Reggie")
+
+    println("$personToAge ")
+
+
     //d) Arrays - Fixed-size collections of elements with a specific type
     //e) Sequences - Lazily evaluated collections of elements that can be processed in a pipeline.
 
