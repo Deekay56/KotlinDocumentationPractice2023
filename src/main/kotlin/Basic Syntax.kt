@@ -1090,7 +1090,7 @@ fun main() {
     //note that this is an immutable list, and elements cannot be changed or added
     val fruits  = listOf("apple", "banana", "mango", "mango") //mango will be outputted twice, unlike sets
 
-    //access the list element "apple"
+    //access the list element "apple" and print it out
 
     println(fruits[0])
 
@@ -1114,7 +1114,6 @@ fun main() {
     maleNames.add("Charles")
 
     println("$maleNames")
-
 
 
     //b) Sets - unordered collections of unique elements, meaning no duplicates
