@@ -1115,6 +1115,84 @@ fun main() {
 
     println("$maleNames")
 
+    println()
+
+
+    // -Array lists -
+
+    // As part of the list collection, since they employ the "Mutable List" interface
+    //In a way, think of the features of a mutable list being the same as an array list
+
+    //an array list is used to create a dynamic array
+    //this means that we can increase or decrease the size of the array as pre-requisites
+    //it also offers mutability features
+    //it may contain duplicates and is also not synchronized in nature
+
+    val myColorList = arrayListOf<String>()
+
+    myColorList.add("blue")
+    myColorList.add("red")
+
+    println("$myColorList ")
+
+    myColorList.add(0,"green") //green takes the first position index zero, replacing blue
+
+    println("$myColorList ")
+
+    //you can also add a whole array list to another one. we shall use the one above
+    //note that for this, we use the addAll function
+
+    val myOtherColorList = arrayListOf<String>()
+
+    myOtherColorList.addAll(myColorList)
+
+    println("$myOtherColorList ")
+
+    //to remove the brackets when printing an array list, or any collection for that matter, we can use a for loop
+
+    for (customArrayListLooper in myOtherColorList){
+        print("$customArrayListLooper ")
+    }
+
+    println()
+
+    //to access an element in an array list, use the same syntax as in other collections
+    myOtherColorList[1]
+
+    //to change the value of an element in an array list
+    myOtherColorList[0] = "purple"
+
+    //now purple replaces green when the array list is printed out
+    println("$myOtherColorList ")
+
+    //to get the index position of an element
+    println(myOtherColorList.indexOf("red"))
+
+    //we can also remove an element from an array list
+    //note that this could also be done with the index position, using the removeAt() function, that is:
+    //myOtherColorList.removeAt(2)
+
+    myOtherColorList.remove("red")
+
+
+    println(myOtherColorList)
+
+    //you can find the first and last elements with the functions for that
+    println("The first element of this array is: "+myOtherColorList.first())
+
+    println("The last element of this array is: "+myOtherColorList.last())
+
+
+
+    //the array list can also be cleared fully
+    //lets use the size property to see how many elements are there before and after clearing the array list
+
+    println("The size of this array is: "+myOtherColorList.size)
+
+    myOtherColorList.clear()
+
+    println("After, clearing, the size of this array is now: "+myOtherColorList.size)
+
 
     //b) Sets - unordered collections of unique elements, meaning no duplicates
 
@@ -1128,6 +1206,7 @@ fun main() {
         print("$penCount ")
     }
 
+
     //example 1 of a mutable set
 
     val femaleNames = mutableSetOf("Diana", "Jane", "Mary", "Mary", "Diana")
@@ -1137,6 +1216,40 @@ fun main() {
     femaleNames.add("Caroline")
 
     println("$femaleNames ")
+
+    //access the element in the set
+    println(femaleNames.elementAtOrNull(3)) //to give "Caroline"
+
+    //access the index position of an element in the set
+    println(femaleNames.indexOf("Diana")) //to give 0
+
+    //access the first and last elements in the set
+    println(femaleNames.first()) //Diana
+    println(femaleNames.last()) //Caroline
+
+    //simple arithmetic operations functions on a set
+    //of course, the set has to be numbers, not words
+
+    val mySetNumbers = setOf(4, 6, 8, 2, 8, 4, 7, 8, 9, 7)
+
+    //note that for the outputs, this is a set, and duplicates are not included
+    println(mySetNumbers.count())
+    println(mySetNumbers.size)
+    println(mySetNumbers.max())
+    println(mySetNumbers.min())
+    println(mySetNumbers.sum())
+    println(mySetNumbers.average())
+
+
+
+    //you can also check if an element is contained in the set or not
+    //the output is a boolean value
+
+    println(mySetNumbers.contains(5)) //false
+
+    //if you wanted to check if the set contained more than one element, you can use containsAll(setOf())
+    //note that ff even one element from the collection is missing in the set, the function will return false.
+    println(mySetNumbers.containsAll(setOf(6, 72))) //false
 
 
     //c) Maps - Collections of key-value pairs, where each key is unique
@@ -1175,6 +1288,10 @@ fun main() {
 
 
     //d) Arrays - Fixed-size collections of elements with a specific type
+
+
+
+
     //e) Sequences - Lazily evaluated collections of elements that can be processed in a pipeline.
 
 
