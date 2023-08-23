@@ -6,6 +6,8 @@ fun main(){
 //which can result in faster lookup times compared to some other types of sets,
 //especially when dealing with a large number of elements.
 
+    //Checking of pulling from the remote repository to local machine works.
+
 
 
 
