@@ -1259,7 +1259,35 @@ fun main() {
     println(mySetNumbers.containsAll(setOf(6, 72))) //false
 
 
-    //c) Maps - Collections of key-value pairs, where each key is unique
+    //Hash Sets -
+
+    //note that hash sets implement the mutableSetOf interface
+    //also has sets use hash codes to manage their internal storage,
+    // which can result in elements being stored and retrieved in an unpredictable order.
+    // So, when you print the HashSet, the order of elements can vary each time you run the code or even during different runs of the same program.
+    val myHashCars = hashSetOf("Volvo", "Jeep", "Jeep", "Mazda", "Toyota", "Mitsubishi")
+
+    println(myHashCars)
+
+    //add an element
+    myHashCars.add("Lexus")
+
+    println(myHashCars)
+
+    //add the whole set to another new hash set
+    val myNewHashCars = hashSetOf<String>()
+
+    myNewHashCars.addAll(myHashCars)
+
+    //add a new element to the new set
+    myNewHashCars.add("Suzuki")
+
+    println(myNewHashCars)
+
+    //Similarly to a normal set, you can traverse, access elements with the same syntax, check elements contained in the set, among other operations
+
+
+    //c) Maps - Collections of key-value pairs/objects, where each key is unique
 
 
     //map keys hold only one value for each key, and each key maps to exactly one value, not more
@@ -1279,19 +1307,11 @@ fun main() {
         println(cityCountryLooper)
     }
 
-    //example 1 of a mutable map
 
-    val personToAge = mutableMapOf("Reggie" to 23, "Mark" to 43, "Sarah" to 36)
 
-    //add a key-value pair to the map
-    personToAge["Alice"] = 45
 
-    println("$personToAge ")
 
-    //remove a key-value pair from the map, this is done using only the key
-    personToAge.remove("Reggie")
 
-    println("$personToAge ")
 
 
     //d) Arrays - Fixed-size collections of elements with a specific type
