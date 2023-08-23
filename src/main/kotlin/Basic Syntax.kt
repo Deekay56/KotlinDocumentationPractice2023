@@ -1,5 +1,12 @@
 /* A) NOTES */
 
+/* Syntax for Pulling from Remote Github Repository */
+
+// a) In command prompt, cd to Project Location in Local PC
+// b) Pull the files from the remote Github master folder using: git pull "repository link"
+
+
+
 /* Kotlin is statically typed, meaning the code is continuously compiled for errors before execution.
 It uses less code and supports null safety.
 Kotlin's variables are non-null by default, and must hold a value.
