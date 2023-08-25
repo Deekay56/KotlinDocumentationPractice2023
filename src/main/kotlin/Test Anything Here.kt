@@ -1,5 +1,7 @@
 fun main(){
 
+    //test1
+
     //example 1 of a mutable map
 
     val personToAge = mutableMapOf("Reggie" to 23, "Mark" to 43, "Sarah" to 36)
@@ -39,6 +41,13 @@ fun main(){
     println(employeeToAge.containsKey("Jake")) //true
     println(employeeToAge.containsValue(64)) //false
 
+    //traverse the hash map keys only
+    for(hashMapKey in employeeToAge.keys){
+        print("$hashMapKey ")
+    }
+
+
+    println()
 
 
 }
