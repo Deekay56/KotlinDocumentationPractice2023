@@ -456,7 +456,7 @@ fun main() {
     }while (doWhileLoopNumber<=5)
 
 
-    /* 8 Add.) CONTROL FLOW - FOR LOOP */
+    /* 8 Add. CONTROL FLOW - FOR LOOP */
 
     //the for loop is used to iterate over a collection of elements or a range of values.
     // It allows you to execute a block of code repeatedly, once for each element or value in the specified range.
@@ -1307,32 +1307,57 @@ fun main() {
         println(cityCountryLooper)
     }
 
+    //example 1 of a mutable map
+
+    val personToAge = mutableMapOf("Reggie" to 23, "Mark" to 43, "Sarah" to 36)
+
+    //add a key-value pair to the map
+    personToAge["Alice"] = 45
+
+    println("$personToAge ")
+
+    //remove a key-value pair from the map, this is done using only the key
+    personToAge.remove("Reggie")
+
+    println("$personToAge ")
+
+    //check map size //can also use the count() function
+    println(personToAge.size)
+
+    //create a new empty map that holds both strings and numbers
+    val employeeToAge = mutableMapOf<String, Int>()
+
+    employeeToAge["Jake"] = 23
+    employeeToAge["Mercy"] = 25
+    employeeToAge["Sam"] = 22
+
+    println(employeeToAge)
+
+    //get the value of a single key
+
+    println("The age of Sam is "+employeeToAge.getValue("Sam"))
+
+    //or
+
+    println("The age of Sam is "+employeeToAge["Sam"])
+
+    //check if a key or value is contained in the map
+
+    println(employeeToAge.containsKey("Jake")) //true
+    println(employeeToAge.containsValue(64)) //false
+
+    //traverse the map keys only
+    for((hmIndex, mapKey) in employeeToAge.keys.withIndex()){ //hmIndex is the index position, mapKey is the actual key value
+        println("The key value at index $hmIndex is $mapKey")
+    }
 
 
 
+    /* 16)  CLASSES */
 
+    /* Class Instantiations.
 
-
-
-    //d) Arrays - Fixed-size collections of elements with a specific type
-
-
-
-
-    //e) Sequences - Lazily evaluated collections of elements that can be processed in a pipeline.
-
-
-
-
-
-
-
-
-
-
-
-    /* Classes */
-    /* Class Instantiations */
+    The definitions and explanations are shown in the class section below the main function */
 
     //Book Class
     val myBook = Book()
@@ -1381,14 +1406,13 @@ fun main() {
 
 
 
-//-------------END OF MAIN FUNCTION-------------------------------------------------------------------------------------------------------------------------//
+//-------------END OF MAIN FUNCTION (T.Y. FOLKS :) )-------------------------------------------------------------------------------------------------------------------------//
 
 
 
 }
 
-
-
+//------------FUNCTIONS:---------------
 
 //functions are blocks of code that run when called/invoked by another part of the code.
 //why functions? modularity (breakable),  reusable, abstraction of complex logic, and also improved readability of code.
@@ -1691,7 +1715,7 @@ fun printSumWithUnit(a: Int, b: Int): Unit { //Unit type can be omitted. since t
         println("The sum of $a and $b is ${a + b}")
    }
 
-   //Hence the correct function below...
+   //...Hence the correct function below...
 
 */
 
@@ -1707,7 +1731,7 @@ fun evenNum(x: Int) = x%2 == 0
 
 
 
-//CLASSES:
+//------------CLASSES:---------------
 
 //A class is a blueprint or a template for creating objects.
 // It defines the properties (attributes) and behaviors (methods) that an object of that class can possess.
@@ -1747,7 +1771,7 @@ class Hobbies (val myHobby: String)
 
 //One can see that fName, lName, and yearBorn do not have val/var keywords
 //This means that unlike typical class properties in the constructor, they are not accessed outside the class directly, making them local variables.
-//They are only used to initialize the "empFullName" property but are not stored as separate properties themselves.
+//They are only used to initialize the "empFullName" and "empAge" properties but are not stored as separate properties themselves.
 //This is in contrast to the yearsWorked, which is directly accessed as a property in the main function after the class has been instantiated.
 
 //Also note currentYear is set as PRIVATE.
